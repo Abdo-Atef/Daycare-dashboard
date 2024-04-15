@@ -1,0 +1,38 @@
+.sideBar{
+  position: fixed ;
+  top: 0;
+  bottom: 0;
+  background-color: #1F263E;
+  margin-bottom: 0;
+  /* width: 250px; */
+  margin: 0;
+  padding: 0;
+  transition: .5s;
+}
+
+.sideBar li a{
+  display: block;
+  padding: 15px 20px;
+  position: relative;
+}
+.sideBar li a,
+.sideBar li i{
+  color: #b1b3bb;
+  font-size: 17px;
+}
+.sideBar li a[class='active']{
+  background-color: #303750;
+  color: #FFFFFF;
+}
+.sideBar li a[class='active'] i{
+  color: #FFFFFF;
+}
+.sideBar li a[class='active']::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: #50B8E4;
+}

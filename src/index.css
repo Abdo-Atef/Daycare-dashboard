@@ -1,3 +1,5 @@
+/* Start Global Styles */
+
 .bg-main{
   background-color: #DFE5F9;
 }
@@ -22,3 +24,23 @@
 .textMilk{
   color: #FFFFFF;
 }
+.ps-60{
+  padding-left: 60px;
+}
+.ps-250{
+  padding-left: 250px;
+}
+.w-250{
+  width: 250px;
+}
+.w-60{
+  width: 60px;
+}
+a{
+  text-decoration: none;
+}
+.AppContainer {
+  transition: .5s;
+}
+
+/* End Global Styles */
