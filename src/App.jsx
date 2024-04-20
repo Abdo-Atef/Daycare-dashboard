@@ -14,6 +14,7 @@ import Website from "./pages/website/Website";
 import Parent_request from "./pages/parent_pages/Parent_request/Parent_request";
 import { store } from "./redux/store";
 import { Provider } from "react-redux";
+import ParentForgetPass from "./pages/parent_pages/Parent_forgetPassword/ParentForgetPass";
 
 function App() {
   const routes = createBrowserRouter([
@@ -21,7 +22,8 @@ function App() {
     { path: "/Registration", element:<Registration /> },
     { path: "/parent.login", element:<Parent_login /> },
     { path: "/parentRequest", element:<Parent_request /> },
-    
+    { path: "/parentForgetPassword", element:<ParentForgetPass/> },
+
     { path: "/employees.login", element:<Employees_login /> },
     { path: "/employees.panal", element: <Layout /> ,
     children: [

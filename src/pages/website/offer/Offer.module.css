@@ -1,0 +1,18 @@
+.offerBgNile{
+    background-color:#00abe9;
+}
+.offerBgNileDark{
+    background-color: #009AD1;
+}
+.offerBgLightBlue{
+    background-color: #05e1d6;
+}
+.offerBgDarkBlue{
+    background-color: #04cac0;
+}
+.OfferTranslate{
+    transition: all .5s;
+}
+.OfferTranslate:hover{
+    transform: translateY(-20px);
+}

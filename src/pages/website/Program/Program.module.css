@@ -1,0 +1,20 @@
+.program{
+    background-image: url(../../../assets/Subtract.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.programBgNile{
+    background-color: #00afff;
+}
+.programBgRed{
+    background-color: #F42478;
+}
+.programBgBlue{
+    background-color: #695ffe;
+}
+.CardTranslate{
+    transition: all .5s;
+}
+.CardTranslate:hover{
+    transform: translateY(-20px);
+}

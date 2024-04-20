@@ -1,0 +1,32 @@
+.EventBg{
+    background-color: #fbfcfc;
+}
+.EventBgOrange{
+    background-color: #fd5c37;
+}
+.EventBgGreen{
+    background-color:#31c9a8;
+}
+.EventBgNile{
+    background-color: #379efd;
+}
+.EventBgYellow{
+    background-color:#fcc953;
+}
+.EventCircle{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.EventCircleBgOrange{
+    background-color: #f33b10;
+}
+.EventCircleBgGreen{
+    background-color: #02b890;
+}
+.EventCircleBgNile{
+    background-color: #2493fa;
+}
+.EventCircleBgYellow{
+    background-color: #FDB510;
+}

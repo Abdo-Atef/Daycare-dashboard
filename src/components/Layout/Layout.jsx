@@ -8,7 +8,6 @@ import { useSelector } from "react-redux";
 export default function Layout() {
 
   const {employeeToken} = useSelector(state=> state.employee)
-
   const { SideBarToggle, setSideBarToggle } = useContext(SideBarContext);
   window.addEventListener("resize", () => {
     window.innerWidth < 1250 ? setSideBarToggle(true) : setSideBarToggle(false);

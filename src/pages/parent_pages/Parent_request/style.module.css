@@ -1,0 +1,56 @@
+:root{
+    --bg-body:rgba(236, 115, 34, 0.4);
+    --back-ground1:rgb(251, 243, 213);
+    --text-color:rgba(205, 87, 8, 0.7);
+}
+
+.request{
+    background-color: var(--bg-body);
+    height: 100vh;
+}
+.bgCard{
+    background-color: var(--back-ground1) !important;
+}
+.bgCard2{
+    background-color: var(--bg-body) !important;
+}
+.changeAvatar{
+    background-color: var(--bg-body) !important;
+    padding: 10px !important;
+    width: 100%;
+    border-radius: 10px !important;
+}
+.bgBtnReq{
+    background-color: var(--text-color);
+}
+.search{
+    width: 400px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    padding: 8px;
+    color: #fff;
+}
+.search::placeholder{
+    color: var(--text-color);
+}
+.textColor{
+    color: var(--text-color);
+}
+.textColor2{
+    color: rgba(242, 104, 12, 0.9);
+}
+.textSpacing{
+    letter-spacing: 10px;
+}
+.textShadow{
+    text-shadow: 1px 5px 3px var(--text-color);
+}
+.cursor{
+    cursor: pointer !important;
+}
+@media screen and (max-width: 768px) {
+    .request{
+        height: 100% !important;
+    }
+}
