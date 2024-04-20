@@ -1,0 +1,19 @@
+.BanarOne{
+    background-image: url(../../../assets/Banner_one.jpg);
+    height: 100vh;
+}
+.BanarTwo{
+    background-image: url(../../../assets/Banner_two.jpg);
+    height: 100vh;
+}
+.BanarThree{
+    background-image: url(../../../assets/Banner_three.jpg);
+    height: 100vh;
+}
+
+.textBanarOrange{
+    color: #ffb218;
+}
+.textBanarNile{
+    color: #16e4d7;
+}

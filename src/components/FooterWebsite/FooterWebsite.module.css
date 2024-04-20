@@ -1,0 +1,27 @@
+.FooterWebsite{
+    background-image: url(../../assets/footer_bg.png);
+    height: 540px;
+    background-color: #e3f7fc;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.FooterInput{
+    background-color: #fff;
+    border: 0;
+    outline: 0;
+}
+.FooterTextColorBlue{
+    color: #12265a;
+}
+.footerTranslate{
+    transform: translateY(-30px);
+    transition: all .5s;
+}
+.FooterWebsite:hover .footerTranslate{
+    transform: translateY(-50px);
+}
+@media screen and (max-width: 768px) {
+    .FooterWebsite{
+        height: 100% !important;
+    }
+}

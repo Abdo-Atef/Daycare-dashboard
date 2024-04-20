@@ -20,6 +20,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import AddNewEmployees from "./pages/employees_pages/Employees/AddNewEmployees";
 import SearchForEmployess from "./pages/employees_pages/Employees/SearchForEmployess";
 import EmployeeProfile from "./pages/employees_pages/EmployeeProfile/EmployeeProfile";
+import ParentForgetPass from "./pages/parent_pages/Parent_forgetPassword/ParentForgetPass";
 
 function App() {
   const routes = createBrowserRouter([
@@ -27,7 +28,8 @@ function App() {
     { path: "/Registration", element:<Registration /> },
     { path: "/parent.login", element:<Parent_login /> },
     { path: "/parentRequest", element:<Parent_request /> },
-    
+    { path: "/parentForgetPassword", element:<ParentForgetPass/> },
+
     { path: "/employees.login", element:<Employees_login /> },
     { path: "/employees.panal", element: <Layout /> ,
     children: [

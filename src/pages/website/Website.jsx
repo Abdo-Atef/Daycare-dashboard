@@ -1,11 +1,22 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-
+import NavBarWebsite from '../../components/NavbarWebsite/NavBarWebsite'
+import style from "./website.module.css"
+import Banar from './Banar/Banar'
+import Offer from './offer/Offer'
+import Program from './Program/Program'
+import EventStaticWeb from './EventStaticWeb/EventStaticWeb'
+import GalleryWebsite from './GalleryWebSite/GalleryWebsite'
+import FooterWebsite from '../../components/FooterWebsite/FooterWebsite'
 export default function Website() {
   return <>
-    <div className='d-flex justify-content-center gap-4 m-3'>
-        <Link className='btn btn-outline-dark px-5' to={'/parent.login'}>Login</Link>
-        <Link className='btn btn-warning  px-4' to={'/Registration'}>Apply Now</Link>
-    </div>
+  <div className={`${style.OfferFontFamily}`}>
+      <NavBarWebsite/>
+      <Banar/>
+      <Offer/>
+      <Program/>
+      <EventStaticWeb/>
+      <GalleryWebsite/>
+      <FooterWebsite/>
+  </div>
   </>
 }

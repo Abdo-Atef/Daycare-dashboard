@@ -1,0 +1,34 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+.bgForgetPass{
+    background-color:rgba(255, 209, 173,.3);
+    height: 100vh;
+}
+.inputForgetPassParent{
+    width: 100%;
+    background-color: rgba(255, 209, 173,.4);
+    padding: 10px 8px;
+    border: 0;
+    outline: 0;
+    border-radius: 8px;
+}
+.inputForgetPassParent:focus{
+    background-color: rgb(255, 209, 173);
+    outline: 2px solid rgba(255, 209, 173,.7);
+}
+.btnPassParent{
+    background-color: rgb(255, 209, 173);
+    border: 0;
+    outline: 0;
+    padding: 10px;
+    width: 200px;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-family: "Open Sans", sans-serif;
+    transition: all .8s;
+}
+.btnPassParent:hover{
+    background-color: rgba(255, 209, 173,.4);
+    letter-spacing: 3px;
+}
