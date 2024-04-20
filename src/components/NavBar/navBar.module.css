@@ -1,0 +1,53 @@
+.navBar {
+  border-bottom: 1px solid rgb(216, 216, 216);
+}
+
+.navBar button:nth-child(1) {
+  outline: 0;
+  border: 0;
+  background-color: transparent;
+  display: inline-block;
+  padding: 6px 15px;
+  border-right: 1px solid rgb(216, 216, 216);
+}
+
+.navBar button:nth-child(1) i {
+  font-size: 22px;
+  color: gray;
+}
+
+.navBar ul {
+  list-style-type: none;
+  background-color: #1F263E;
+  width: 100%;
+  border-radius: 5px;
+  bottom: -96px;
+  margin: 0;
+  padding-left: 0px;
+}
+.navBar ul::before {
+  position: absolute;
+  content: "";
+  background-color: #1F263E;
+  width: 14px;
+  height: 14px;
+  top: -4px;
+  right: 10px;
+  transform: rotate(45deg);
+}
+
+.navBar a {
+  color: white;
+  font-size: 14px;
+  display: block;
+  padding: 11px 12px;
+}
+
+.navBar a:hover {
+  /* color: white;
+  border: 1px solid transparent;
+  padding: 5px 15px;
+  border-radius: 5px;
+  height: fit-content;
+  background-color: #39445d; */
+}
