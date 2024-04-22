@@ -2,9 +2,7 @@
   position: fixed ;
   top: 0;
   bottom: 0;
-  background-color: #1F263E;
-  margin-bottom: 0;
-  /* width: 250px; */
+  width: 250px;
   margin: 0;
   padding: 0;
   transition: .5s;
@@ -16,7 +14,7 @@
   position: relative;
 }
 .sideBar li a,
-.sideBar li i{
+.sideBar li a > i{
   color: #b1b3bb;
   font-size: 17px;
 }
@@ -35,4 +33,9 @@
   bottom: 0;
   width: 4px;
   background-color: #50B8E4;
+}
+
+.sideBar li div a{
+  font-size: 14px;
+  padding-left: 50px;
 }

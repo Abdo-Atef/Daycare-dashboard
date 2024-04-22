@@ -14,6 +14,10 @@ import Website from "./pages/website/Website";
 import Parent_request from "./pages/parent_pages/Parent_request/Parent_request";
 import { store } from "./redux/store";
 import { Provider } from "react-redux";
+import ForgetPassword from "./pages/employees_pages/ForgetPassword/ForgetPassword";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import EmployeeProfile from "./pages/employees_pages/EmployeeProfile/EmployeeProfile";
 import ParentForgetPass from "./pages/parent_pages/Parent_forgetPassword/ParentForgetPass";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -38,8 +42,10 @@ function App() {
       { path: "/employees.panal/requests", element:<Requests /> },
       { path: "/employees.panal/busses", element:<Busses/> },
       { path: "/employees.panal/employees", element:<Employees /> },
+      { path: "/employees.panal/EmployeeProfile", element:<EmployeeProfile /> },
     ],
-  },
+  } ,
+  { path: "/employees.ForgetPassword", element:<ForgetPassword /> },
   ]);
 
   return (

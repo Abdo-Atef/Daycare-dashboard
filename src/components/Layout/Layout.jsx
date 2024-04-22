@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 export default function Layout() {
 
   const {employeeToken} = useSelector(state=> state.employee)
+
   const { SideBarToggle, setSideBarToggle } = useContext(SideBarContext);
   window.addEventListener("resize", () => {
     window.innerWidth < 1250 ? setSideBarToggle(true) : setSideBarToggle(false);
@@ -18,7 +19,7 @@ export default function Layout() {
   return (
     <div className="MainContainer">
       <SideBar />
-      <main className={`AppContainer bg-main ${SideBarToggle ? "ps-60" : "ps-250"}`}>
+      <main className={`AppContainer bg-main ${SideBarToggle ? "ps-0" : "ps-250"}`}>
         <NavBar />
         <Outlet />
       </main>

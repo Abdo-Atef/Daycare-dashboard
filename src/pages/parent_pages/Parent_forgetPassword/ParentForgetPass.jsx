@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import style from "./forgetPass.module.css"
 import image from "../../../assets/pass.jpg"
 import { useFormik } from 'formik'
-import * as yup from "yup"
+import * as yup from "Yup"
 import { updateDataFromApi } from '../../../utils/api'
 import { Link, useNavigate } from 'react-router-dom'
 export default function ParentForgetPass() {

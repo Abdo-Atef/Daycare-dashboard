@@ -4,13 +4,19 @@
   background-color: #DFE5F9;
 }
 .bg-night{
-  background-color: #1F263E;
+  background-color: #1F263E !important;
+}
+.text-night{
+  color: #1F263E;
 }
 .bg-midNight{
   background-color: #303750;
 }
 .bg-nile{
   background-color: #50B8E4;
+}
+.text-nile{
+  color: #50B8E4;
 }
 .textNile{
   color: #50B8E4;
@@ -24,20 +30,41 @@
 .textMilk{
   color: #FFFFFF;
 }
+.borderBottom-nile{
+  border-bottom: 3px solid #50B8E4;
+}
 .ps-60{
   padding-left: 60px;
 }
 .ps-250{
   padding-left: 250px;
 }
-.w-250{
-  width: 250px;
+.-start-250{
+  left: -250px;
 }
-.w-60{
-  width: 60px;
+.fs-17{
+  font-size: 17px;
+}
+.fs-15{
+  font-size: 15px;
+}
+.fs-14{
+  font-size: 14px;
+}
+.fs-13{
+  font-size: 13px;
+}
+.fs-12{
+  font-size: 12px;
 }
 a{
   text-decoration: none;
+}
+.cursor-pointer{
+  cursor: pointer;
+}
+.rounded-full{
+  border-radius: 50%;
 }
 .AppContainer {
   transition: .5s;
