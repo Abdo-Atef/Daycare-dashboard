@@ -6,7 +6,7 @@ import child from "../../../assets/avatar.jpg"
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { setParentToken } from '../../../redux/parents_Slices/parent_slices'
 import { useFormik } from 'formik'
-import * as yup from "yup"
+import * as yup from "Yup"
 import { BASE_URL } from '../../../utils/api'
 import { toast } from 'react-toastify'
 import Swal from 'sweetalert2'

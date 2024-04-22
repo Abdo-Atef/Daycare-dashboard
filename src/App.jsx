@@ -19,7 +19,6 @@ import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import EmployeeProfile from "./pages/employees_pages/EmployeeProfile/EmployeeProfile";
 import ParentForgetPass from "./pages/parent_pages/Parent_forgetPassword/ParentForgetPass";
-import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import About from "./pages/website/About/About";
 import Contact from "./pages/website/Contact/Contact";
