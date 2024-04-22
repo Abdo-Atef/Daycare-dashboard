@@ -6,7 +6,7 @@ import SideBarContextProvider from "./context/SideBar";
 import Requests from "./pages/employees_pages/Requests/Requests";
 import Busses from "./pages/employees_pages/Busses/Busses";
 import Users from "./pages/employees_pages/Users/Users";
-import Employees from "./pages/employees_pages/Employees/ManageEmployees";
+import Employees from "./pages/employees_pages/Employees/Employees";
 import Dashboard from "./pages/employees_pages/Dashboard/Dashboard";
 import Groups from "./pages/employees_pages/Groups/Groups";
 import Parent_login from "./pages/parent_pages/Parent_login/Parent_login";
@@ -17,10 +17,9 @@ import { Provider } from "react-redux";
 import ForgetPassword from "./pages/employees_pages/ForgetPassword/ForgetPassword";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import AddNewEmployees from "./pages/employees_pages/Employees/AddNewEmployees";
-import SearchForEmployess from "./pages/employees_pages/Employees/SearchForEmployess";
 import EmployeeProfile from "./pages/employees_pages/EmployeeProfile/EmployeeProfile";
 import ParentForgetPass from "./pages/parent_pages/Parent_forgetPassword/ParentForgetPass";
+
 
 function App() {
   const routes = createBrowserRouter([
@@ -38,9 +37,7 @@ function App() {
       { path: "/employees.panal/users", element:<Users /> },
       { path: "/employees.panal/requests", element:<Requests /> },
       { path: "/employees.panal/busses", element:<Busses /> },
-      { path: "/employees.panal/manageEmployees", element:<Employees /> },
-      { path: "/employees.panal/addNewEmployees", element:<AddNewEmployees /> },
-      { path: "/employees.panal/searchForEmployess", element:<SearchForEmployess /> },
+      { path: "/employees.panal/employees", element:<Employees /> },
       { path: "/employees.panal/EmployeeProfile", element:<EmployeeProfile /> },
     ],
   } ,

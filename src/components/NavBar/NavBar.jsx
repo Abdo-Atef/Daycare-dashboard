@@ -1,12 +1,13 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { SideBarContext } from "../../context/SideBar";
 import Style from "./navBar.module.css";
-import { useDispatch } from "react-redux";
-import { setEmployeeToken } from "../../redux/employees_Slices/employeeSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { getEmployeeProfile, setEmployeeToken } from "../../redux/employees_Slices/employeeSlice";
 import userImage from '../../assets/userImage.png'
 import { Link } from "react-router-dom";
 
 export default function NavBar() {
+  const { employeeProfileData}= useSelector(state => state.employee);
   const { SideBarToggle, setSideBarToggle } = useContext(SideBarContext);
   let dispatch = useDispatch();
   const [ProfileToggle, setProfileToggle] = useState(false)
@@ -18,6 +19,10 @@ export default function NavBar() {
   const toggleSideBar = () => {
     SideBarToggle ? setSideBarToggle(false) : setSideBarToggle(true);
   };
+  useEffect(() => {
+    dispatch(getEmployeeProfile());
+  }, [])
+  
 
   return <>
     <nav className={`${Style.navBar} navBar d-flex justify-content-between align-items-center bg-milk py-2`}>
@@ -29,13 +34,13 @@ export default function NavBar() {
         </g>
         </svg>
       </button>
-      <div className="me-5 position-relative rounded-5 rounded-end-3 shadow-lg bg-night ">
+      <div className="me-md-5 me-2 position-relative rounded-5 rounded-end-3 shadow-lg bg-night ">
         <div onClick={()=>setProfileToggle(!ProfileToggle)} className="cursor-pointer d-flex justify-content-between align-items-center gap-3">
           <figure className="mb-0 rounded-5 border border-2 border-white">
-            <img src={userImage} alt="userImage" className="rounded-5" width={40}/>
+            <img src={employeeProfileData?.employee.profilePicture.secure_url.replace(/.*https:\/\//, 'https://')} alt="user image" style={{borderRadius:'50%'}} width={40} height={40}/>
           </figure>
           <div className="pe-3 d-flex justify-content-between align-items-center gap-2 textMilk">
-            <span className="fs-14">Abdo Atef</span>
+            <span className="fs-14 text-capitalize">{employeeProfileData?.employee.name.split(' ').splice(0,2).join(' ')}</span>
             <i className={`fa-solid ${ProfileToggle ? 'fa-angle-down': 'fa-angle-up' } fs-13`}></i>
           </div>
         </div>

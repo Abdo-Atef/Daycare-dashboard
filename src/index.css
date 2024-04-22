@@ -4,7 +4,7 @@
   background-color: #DFE5F9;
 }
 .bg-night{
-  background-color: #1F263E;
+  background-color: #1F263E !important;
 }
 .text-night{
   color: #1F263E;
@@ -62,6 +62,9 @@ a{
 }
 .cursor-pointer{
   cursor: pointer;
+}
+.rounded-full{
+  border-radius: 50%;
 }
 .AppContainer {
   transition: .5s;
