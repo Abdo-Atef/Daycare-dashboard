@@ -90,7 +90,8 @@ export default function ParentForgetPass() {
                                   <input type="email"  className={`${style.inputForgetPassParent} mt-1 shadow-sm`} placeholder="Enter your email" name="email" value={formikEmail.values.email} onBlur={formikEmail.handleBlur} onChange={formikEmail.handleChange}/>
                                   {formikEmail.errors.email&&formikEmail.touched.email?<p className='text-danger mt-1'>{formikEmail.errors.email}</p>:""}
                                   <div className='d-flex justify-content-center'>
-                                    {loading?<button className={`btn ${style.btnlogin} w-50 border-0 shadow-sm`} disabled ><i className="fa-solid fa-spinner fa-spin-pulse"></i></button>:<button className={`${style.btnPassParent} shadow-sm`}>Send Email</button>}
+                                    {loading?<button className={`${style.btnPassParent} border-0 shadow-sm`} disabled ><i className="fa-solid fa-spinner fa-spin-pulse"></i></button>
+                                    :<button className={` ${style.btnPassParent} border-0  shadow-sm`} disabled={!(formikEmail.dirty&&formikEmail.isValid)}>Send Email</button>}
                                   </div>
                                 </form>
                             </div>
@@ -105,7 +106,8 @@ export default function ParentForgetPass() {
                                     <input type="text"  className={`shadow-sm ${style.inputForgetPassParent} mt-2`} placeholder="Enter your code" name="code" value={formikResetPass.values.code} onBlur={formikResetPass.handleBlur} onChange={formikResetPass.handleChange}/>
                                     {formikResetPass.errors.code&&formikResetPass.touched.code?<p className='text-danger m-0 p-0'>{formikResetPass.errors.code}</p>:""}
                                     <div className='d-flex justify-content-center'>
-                                    {loading?<button className={`btn ${style.btnlogin} w-50 border-0 shadow-sm`} disabled ><i className="fa-solid fa-spinner fa-spin-pulse"></i></button>:<button className={`${style.btnPassParent} shadow-sm`}>Reset password</button>}
+                                    {loading?<button className={`${style.btnPassParent} border-0 shadow-sm`} disabled ><i className="fa-solid fa-spinner fa-spin-pulse"></i></button>
+                                    :<button className={`${style.btnPassParent} shadow-sm border-0 `} disabled={!(formikResetPass.dirty&&formikResetPass.isValid)}>Reset password</button>}
                                     </div>
                                   </form>
                             </div>
