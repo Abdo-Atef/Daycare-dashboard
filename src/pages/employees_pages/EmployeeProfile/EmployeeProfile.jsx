@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import image from '../../../assets/userImage.png'
-import styles from './styles.module.css'
 import ProfileDetails from './ProfileDetails'
 import ChangePassword from './ChangePassword'
 import ChangeData from './ChangeData'
@@ -15,7 +13,7 @@ export default function EmployeeProfile() {
   let dispatch = useDispatch();
   const [ActiveSection, setActiveSection] = useState('myProfile');
   const {employeeToken, employeeProfileData}= useSelector(state => state.employee);
-
+  
   /* -------------------------------- Image Uplaod ------------------------------ */
 
   let fileValidation = Yup.object({
@@ -63,14 +61,14 @@ export default function EmployeeProfile() {
       {employeeProfileData && <div className="pageContent py-4">
         <div className="row g-4">
           <div className='col-lg-3'>
-            <section className='bg-milk shadow p-3 py-4  rounded-2'>
+            <section className='bg-milk shadow p-3 py-4 rounded-2'>
               <figure className='text-center'>
                 <img className='border' style={{borderRadius:'50%'}} width={140} height={140} src={employeeProfileData.employee.profilePicture.secure_url.replace(/.*https:\/\//, 'https://')} alt="user image" />
               </figure>
               <h4 className='text-center fs-17 text-capitalize'>Mr. {employeeProfileData.employee.name}</h4>
               <h5 className='text-center h6 text-secondary text-capitalize'>{employeeProfileData.employee.role}</h5>
               <form className='text-center my-3 d-flex justify-content-center gap-2 align-items-center' onSubmit={formik.handleSubmit}>
-                <label htmlFor="uploadImage" className={`${styles.ImageInput} btn bg-night text-white fs-13 rounded-1 mt-1`}>
+                <label htmlFor="uploadImage" className={`${styles.ImageInput} btn btn-night fs-13 rounded-1 mt-1`}>
                   <i className="fa-solid fa-pen fs-13 me-1"></i>Change Image
                 </label>
                 <input id='uploadImage' name='profilePicture' className='d-none' type="file" 

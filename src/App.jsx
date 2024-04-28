@@ -19,6 +19,7 @@ import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import EmployeeProfile from "./pages/employees_pages/EmployeeProfile/EmployeeProfile";
 import ParentForgetPass from "./pages/parent_pages/Parent_forgetPassword/ParentForgetPass";
+import EvaluatorRequests from "./pages/employees_pages/EvaluatorRequests/EvaluatorRequests";
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
       { path: "/employees.panal/busses", element:<Busses /> },
       { path: "/employees.panal/employees", element:<Employees /> },
       { path: "/employees.panal/EmployeeProfile", element:<EmployeeProfile /> },
+      { path: "/employees.panal/EvaluatorRequests", element:<EvaluatorRequests /> },
     ],
   } ,
   { path: "/employees.ForgetPassword", element:<ForgetPassword /> },

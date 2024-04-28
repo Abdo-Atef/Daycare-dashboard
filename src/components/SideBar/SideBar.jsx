@@ -32,16 +32,22 @@ export default function SideBar() {
             Requests
           </NavLink>
         </li>
-        <li>
+        {/* <li>
           <NavLink to={"/employees.panal/users"} end>
             <i className="me-2 fa-solid fa-users"></i>
             Users
           </NavLink>
-        </li>
+        </li> */}
         <li>
           <NavLink to={"/employees.panal/employees"} end>
           <i className="me-2 fa-solid fa-user-tie fs-17"></i>
             Employees
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to={"/employees.panal/EvaluatorRequests"} end>
+            <i className="me-2 fa-solid fa-envelope-open-text"></i>
+            Evaluator Requests
           </NavLink>
         </li>
         {/* <li>
