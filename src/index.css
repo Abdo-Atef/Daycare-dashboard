@@ -6,6 +6,15 @@
 .bg-night{
   background-color: #1F263E !important;
 }
+.btn-night{
+  background-color: #1F264D !important;
+  color: white;
+}
+.btn-night:hover{
+  background-color: #1F263E !important;
+  color: white;
+}
+
 .text-night{
   color: #1F263E;
 }

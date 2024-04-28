@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { SideBarContext } from "../../context/SideBar";
 import Style from "./navBar.module.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -19,9 +19,18 @@ export default function NavBar() {
   const toggleSideBar = () => {
     SideBarToggle ? setSideBarToggle(false) : setSideBarToggle(true);
   };
+
+  const ulRef = useRef(null);
+
   useEffect(() => {
     dispatch(getEmployeeProfile());
+    const handleClickOutside = (event) => { 
+      !event.target.closest(`.ProfileToggleB`) && setProfileToggle(false);
+    };
+    document.addEventListener("click", handleClickOutside);
+
   }, [])
+  
   
 
   return <>
@@ -35,16 +44,16 @@ export default function NavBar() {
         </svg>
       </button>
       <div className="me-md-5 me-2 position-relative rounded-5 rounded-end-3 shadow-lg bg-night ">
-        <div onClick={()=>setProfileToggle(!ProfileToggle)} className="cursor-pointer d-flex justify-content-between align-items-center gap-3">
+        <div onClick={()=>setProfileToggle(!ProfileToggle)} className="ProfileToggleB cursor-pointer d-flex justify-content-between align-items-center gap-3">
           <figure className="mb-0 rounded-5 border border-2 border-white">
-            <img src={employeeProfileData?.employee.profilePicture.secure_url.replace(/.*https:\/\//, 'https://')} alt="user image" style={{borderRadius:'50%'}} width={40} height={40}/>
+            <img src={employeeProfileData?.employee?.profilePicture?.secure_url.replace(/.*https:\/\//, 'https://')} alt="user image" style={{borderRadius:'50%'}} width={40} height={40}/>
           </figure>
           <div className="pe-3 d-flex justify-content-between align-items-center gap-2 textMilk">
-            <span className="fs-14 text-capitalize">{employeeProfileData?.employee.name.split(' ').splice(0,2).join(' ')}</span>
+            <span className="fs-14 text-capitalize">{employeeProfileData?.employee?.name.split(' ').splice(0,2).join(' ')}</span>
             <i className={`fa-solid ${ProfileToggle ? 'fa-angle-down': 'fa-angle-up' } fs-13`}></i>
           </div>
         </div>
-        {ProfileToggle && <ul className="position-absolute">
+        {ProfileToggle && <ul ref={ulRef}  className="position-absolute">
           <li className="border-bottom border-white ">
             <Link onClick={()=> setProfileToggle(false)} to={'/employees.panal/EmployeeProfile'}><i className="fa-solid fa-user fs-14 me-2"></i>My Profile</Link>
           </li>

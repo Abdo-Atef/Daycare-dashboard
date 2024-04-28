@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import * as Yup from "Yup";
 import { BASE_URL } from "../../../utils/api";
 import { useSelector } from "react-redux";
-import styles from "./styles.module.css";
 import axios from "axios";
 
 export default function ChangeData({UserId}) {
@@ -99,7 +98,7 @@ export default function ChangeData({UserId}) {
         )}
         <button
           type="submit"
-          className={`${styles.updateBtn} btn bg-night text-white fw-semibold w-100 mt-4`}
+          className={`btn btn-night fw-semibold w-100 mt-4`}
         >
           Update The Data
         </button>

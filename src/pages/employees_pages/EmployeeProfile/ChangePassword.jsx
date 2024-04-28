@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import * as Yup from "Yup";
 import { BASE_URL } from "../../../utils/api";
 import { useDispatch, useSelector } from "react-redux";
-import styles from './styles.module.css'
 import { setEmployeeToken } from "../../../redux/employees_Slices/employeeSlice";
 import axios from "axios";
 
@@ -120,7 +119,7 @@ export default function ChangePassword() {
         {Success && <p className="text-success text-center my-3 ">The password is updated successfully, please Login again</p>}
         <button
           type="submit"
-          className={`${styles.updateBtn} btn bg-night text-white fw-semibold w-100 mt-4`}
+          className={`btn btn-night fw-semibold w-100 mt-4`}
         >
           Update The Password
         </button>

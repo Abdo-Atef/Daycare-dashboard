@@ -4,17 +4,17 @@ import { BASE_URL } from "../../utils/api";
 
 
 export const getAllemployees = createAsyncThunk('getAllemployees', 
-  async()=>{
+  async(role)=>{
     try {
       const headers = {
         token : localStorage.getItem('employeeToken')
       }
-      const data = await axios.get(`${BASE_URL}/employees/getAllEmployee`, {headers});
-      // console.log(data.data);
+      const data = await axios.get(`${BASE_URL}/employees/getAllEmployee?role=${role}`, {headers});
+      console.log(data.data);
       return data.data
     } catch (error) {
-      return error
       console.log(error);
+      return error
     }
   } 
 )
@@ -40,7 +40,8 @@ export const addNewEmployee = createAsyncThunk('addNewEmployee',
         token : localStorage.getItem('employeeToken')
       }
       const data = await axios.post(`${BASE_URL}/employees/addEmployee`, params, {headers});
-      console.log(data.data);
+      // console.log(data.data);
+      return data.data;
     } catch (error) {
       console.log(error);
     }
@@ -53,7 +54,23 @@ export const getEmployeeProfile = createAsyncThunk('getEmployeeProfile',
         token : localStorage.getItem('employeeToken')
       }
       const data = await axios.get(`${BASE_URL}/employees/employeeProfile`, {headers});
-      
+      // console.log(data.data);
+      return data.data
+    } catch (error) {
+      console.log(error);
+      return error
+    }
+  } 
+)
+
+export const searchForEmployees = createAsyncThunk('searchForEmployees', 
+  async(name)=>{
+    try {
+      const headers = {
+        token : localStorage.getItem('employeeToken')
+      }
+      const data = await axios.get(`${BASE_URL}/employees/SpEmployeeByPhoneByName?name=${name}`, {headers});
+      console.log(data.data);
       return data.data
     } catch (error) {
       console.log(error);
@@ -98,6 +115,17 @@ export const employeeSlice = createSlice({
       state.isLoading = false;
     })
     builder.addCase(getEmployeeProfile.pending, (state)=>{
+      state.isLoading = true;
+    })
+    /* -------------------------- searchForEmployees -------------------------- */
+    builder.addCase(searchForEmployees.fulfilled, (state, action)=>{
+      state.employees = action.payload;
+      state.isLoading = false;
+    })
+    builder.addCase(searchForEmployees.rejected, (state)=>{
+      state.isLoading = false;
+    })
+    builder.addCase(searchForEmployees.pending, (state)=>{
       state.isLoading = true;
     })
   }

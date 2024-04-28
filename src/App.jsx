@@ -19,7 +19,7 @@ import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import EmployeeProfile from "./pages/employees_pages/EmployeeProfile/EmployeeProfile";
 import ParentForgetPass from "./pages/parent_pages/Parent_forgetPassword/ParentForgetPass";
-import 'react-toastify/dist/ReactToastify.css';
+import EvaluatorRequests from "./pages/employees_pages/EvaluatorRequests/EvaluatorRequests";
 import About from "./pages/website/About/About";
 import Contact from "./pages/website/Contact/Contact";
 import SpicificRequest from "./pages/employees_pages/spicificRequest/SpicificRequest";
@@ -45,7 +45,7 @@ function App() {
       { path: "/employees.panal/employees", element:<Employees /> },
       { path: "/employees.panal/EmployeeProfile", element:<EmployeeProfile /> },
       { path: "/employees.panal/interview", element:<Interview/> },
-
+      { path: "/employees.panal/EvaluatorRequests", element:<EvaluatorRequests /> },
     ],
   } ,
   { path: "/employees.ForgetPassword", element:<ForgetPassword /> },
