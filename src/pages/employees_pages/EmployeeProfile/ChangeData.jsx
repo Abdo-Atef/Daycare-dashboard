@@ -98,7 +98,7 @@ export default function ChangeData({UserId}) {
         )}
         <button
           type="submit"
-          className={`${styles.updateBtn} btn btn-night fw-semibold w-100 mt-4`}
+          className={`btn btn-night fw-semibold w-100 mt-4`}
         >
           Update The Data
         </button>

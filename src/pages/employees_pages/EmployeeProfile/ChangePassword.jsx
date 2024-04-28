@@ -119,7 +119,7 @@ export default function ChangePassword() {
         {Success && <p className="text-success text-center my-3 ">The password is updated successfully, please Login again</p>}
         <button
           type="submit"
-          className={`${styles.updateBtn} btn btn-night fw-semibold w-100 mt-4`}
+          className={`btn btn-night fw-semibold w-100 mt-4`}
         >
           Update The Password
         </button>

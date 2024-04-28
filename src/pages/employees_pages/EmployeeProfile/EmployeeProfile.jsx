@@ -68,14 +68,14 @@ export default function EmployeeProfile() {
               <h4 className='text-center fs-17 text-capitalize'>Mr. {employeeProfileData.employee.name}</h4>
               <h5 className='text-center h6 text-secondary text-capitalize'>{employeeProfileData.employee.role}</h5>
               <form className='text-center my-3 d-flex justify-content-center gap-2 align-items-center' onSubmit={formik.handleSubmit}>
-                <label htmlFor="uploadImage" className={`${styles.ImageInput} btn btn-night fs-13 rounded-1 mt-1`}>
+                <label htmlFor="uploadImage" className={`btn btn-night fs-13 rounded-1 mt-1`}>
                   <i className="fa-solid fa-pen fs-13 me-1"></i>Change Image
                 </label>
                 <input id='uploadImage' name='profilePicture' className='d-none' type="file" 
                   onChange={(event) => {formik.setFieldValue("profilePicture", event.currentTarget.files[0]);}}
                 />
                 {formik.values.profilePicture && 
-                <button type="submit" className={`${styles.ImageInput} btn bg-night text-white fs-13 mt-1`}>
+                <button type="submit" className={`btn bg-night text-white fs-13 mt-1`}>
                   {formik.isSubmitting ? <i className="fa-solid fa-spinner fa-spin"></i> : <i className="fa-solid fa-check"></i>}
                 </button>}
               </form>
@@ -88,7 +88,7 @@ export default function EmployeeProfile() {
           </div>
           <div className='col-lg-9'>
             <section className='bg-milk shadow p-3 py-4 rounded-2'>
-              <nav className={`${styles.NavTabs} shadow d-flex justify-content-center align-items-center gap-md-4 gap-2 py-3 rounded border`}>
+              <nav className={`shadow d-flex justify-content-center align-items-center gap-md-4 gap-2 py-3 rounded border`}>
                 <span onClick={ ()=>setActiveSection('myProfile')} className={` ${ActiveSection == 'myProfile' ? 'text-nile borderBottom-nile':'text-secondary'} fs-15 px-2 fw-semibold cursor-pointer pb-1 `}>My Profile</span>
                 <span onClick={ ()=>setActiveSection('changePassword')} className={` ${ActiveSection == 'changePassword' ? 'text-nile borderBottom-nile':'text-secondary'} fs-15 px-2 fw-semibold cursor-pointer pb-1`}>Change Password</span>
                 <span onClick={ ()=>setActiveSection('changeData')} className={` ${ActiveSection == 'changeData' ? 'text-nile borderBottom-nile':'text-secondary'} fs-15 px-2 fw-semibold cursor-pointer pb-1`}>Change Data</span>
