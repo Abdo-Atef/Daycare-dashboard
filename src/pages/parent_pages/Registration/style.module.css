@@ -75,3 +75,7 @@
     color: var(--text-color3);
     letter-spacing: 1px;
 }
+.BgGreenRegestration{
+    background-color: #FFF5E0;
+    width: 400px;
+}

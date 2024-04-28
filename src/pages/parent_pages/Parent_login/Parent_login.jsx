@@ -52,7 +52,7 @@ export default function Parent_login() {
                       <img src={child} alt="child" className={`w-100 rounded-3 `} style={{height:400}}  />
                     </div>
                   </div>
-                  <div className=" col-md-7 my-auto ">
+                  <div className=" col-md-7 my-auto  ">
                       <div className='p-sm-3 p-md-4 p-xl-0'>
                         <h1 className={`${style.heading} ${style.spacing10} `}>Login</h1>
                       </div>
@@ -65,7 +65,7 @@ export default function Parent_login() {
                         <div className='d-flex justify-content-center  my-1'>
                           {
                             loading?<button className={`btn ${style.btnlogin} w-50 border-0 shadow-sm`} disabled ><i className="fa-solid fa-spinner fa-spin-pulse"></i></button>
-                            :<button type='submit' className={`btn ${style.btnlogin} w-50 shadow-sm`}> Login</button>
+                            :<button type='submit' className={`btn ${style.btnlogin} w-50 shadow-sm border-0 `} disabled={!(formik.dirty&&formik.isValid)}> Login</button>
                           }
                         </div>
                         <div className='d-flex justify-content-between align-items-center '>

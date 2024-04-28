@@ -6,16 +6,13 @@
 }
 .inputForgetPassParent{
     width: 100%;
-    background-color: rgba(255, 209, 173,.4);
+    background-color: rgb(251, 243, 213);
     padding: 10px 8px;
     border: 0;
     outline: 0;
     border-radius: 8px;
 }
-.inputForgetPassParent:focus{
-    background-color: rgb(255, 209, 173);
-    outline: 2px solid rgba(255, 209, 173,.7);
-}
+
 .btnPassParent{
     background-color: rgb(255, 209, 173);
     border: 0;

@@ -6,7 +6,6 @@
 
 .request{
     background-color: var(--bg-body);
-    height: 100vh;
 }
 .bgCard{
     background-color: var(--back-ground1) !important;
@@ -49,8 +48,28 @@
 .cursor{
     cursor: pointer !important;
 }
-@media screen and (max-width: 768px) {
-    .request{
-        height: 100% !important;
-    }
+.bgDownload{
+    background-color:rgba(205, 87, 8, 0.1) ;
+}
+.cursor{
+    cursor: pointer;
+}
+.bgRefusedRequest{
+    background-color: hsla(360, 69%, 43%, 0.38);
+    border: 2px solid hsla(360, 79%, 43%, 0.47);
+}
+.bgAcceptedRequest{
+    background-color: hsla(111, 79%, 31%, 0.47);
+    border: 2px solid hsla(111, 79%, 31%, 0.55);
+}
+.cancel{
+    background-color: rgba(231, 41, 41,.7);
+    border: 0;
+    outline:0;
+    padding: 10px 15px;
+    transition: all .5s;
+}
+.cancel:hover{
+    background-color: rgba(231, 41, 41,1);
+    letter-spacing: 1px;
 }

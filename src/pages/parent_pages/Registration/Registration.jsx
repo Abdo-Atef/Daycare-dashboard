@@ -1,22 +1,38 @@
-import React from 'react'
+import React, { useState } from 'react'
 import style from './style.module.css'
 import child from '../../../assets/form-child.jpg'
 import { useFormik } from 'formik'
 import * as yup from 'Yup'
 import axios from 'axios'
 import { useSelector } from 'react-redux'
-import { Link, Navigate } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
+import { postDataToApi } from '../../../utils/api'
 export default function Registration() {
   const {parentToken}=useSelector((state)=>state.parent);
+  const [Msg,setMsg]=useState(null);
+  const [MsgErr,setMsgErr]=useState(null);
+  const [loading,setLoading]=useState(false)
+  const navigate=useNavigate();
+
   async function signup(value) {
     const formData = new FormData();
     for (const key in value) {
       formData.append(key, value[key]);
     }
-        const result = await axios.post(`http://localhost:3000/requests/makeRequest`, formData).catch((err)=>{
-          console.log(err);
-        });
-        console.log(result);
+    const result=await postDataToApi("/requests/makeRequest",formData);
+    if(result.sucess == true){
+        setTimeout(()=>{
+            setMsg(null)
+            window.open("https://mail.google.com", "_blank");
+        },2000)
+        setTimeout(()=>{
+          navigate("/parent.login");
+        },2000)
+    }else{
+        setMsg(result)
+    }
+      
+
 }
 
   const signUpSchema=yup.object({
@@ -64,6 +80,12 @@ export default function Registration() {
       <div className="container">
         <div className=' d-flex align-items-center justify-content-center  p-5 '>
             <div className={` rounded-3 shadow bg-white`}>
+                <div className='d-flex justify-content-center mt-4 '>
+                  <div >
+                      {Msg?.sucess == true?<div className={`text-center p-4 ${style.BgGreenRegestration} shadow rounded-3`}><p className='text-success'>{Msg.message}</p></div>:Msg?.sucess == false ?<div className={`text-center p-4 ${style.BgGreenRegestration} shadow rounded-3`}><p className='text-danger'>{Msg?.error}</p></div>:""}
+                  </div>
+                  
+                </div>
                 <div className="row g-0">
                   <div className="col-md-7   ">
                     <div className='p-4 '>
@@ -77,7 +99,8 @@ export default function Registration() {
                       <img src={child} alt="child" className={`${style.childImage} w-100   rounded-end-3 h-100 d-none d-md-block`}  />
                     </div>
                   </div>
-                  <div className="col-md-5 ">
+                  <div className="col-md-5">
+                      
                       <form action="" className='p-4' onSubmit={formik.handleSubmit}>
                         <input type="text"  className={`${style.input} shadow-sm `} placeholder="parent name" name="parentName" value={formik.values.parentName} onBlur={formik.handleBlur} onChange={formik.handleChange} />
                         {formik.errors.parentName&&formik.touched.parentName?<p className='text-danger mt-1'>{formik.errors.parentName}</p>:""}
@@ -120,7 +143,11 @@ export default function Registration() {
                         <input type="file" id='birthCertificate' className='d-none' name="birthCertificate"  onChange={handleChangeFile} />
                         
                         <div className='d-flex justify-content-center '>
-                          <button type='submit' className={`btn ${style.btnRegister} shadow-sm w-100`} > Apply</button>
+                          
+                          {
+                                loading?<button className={`btn ${style.btnRegister} w-50 border-0 shadow-sm `} disabled ><i className="fa-solid fa-spinner fa-spin-pulse"></i></button>
+                                : <button type='submit' className={`btn ${style.btnRegister} shadow-sm w-100 border-0 `} disabled={!(formik.dirty&&formik.isValid)} > Apply</button>
+                          }
                         </div>
                         <p className='mt-1'>Do you have account? <Link to="/parent.login" className={`${style.textColor2}`}>Sign In</Link> </p>
                       </form>

@@ -20,15 +20,18 @@ import 'react-toastify/dist/ReactToastify.css';
 import EmployeeProfile from "./pages/employees_pages/EmployeeProfile/EmployeeProfile";
 import ParentForgetPass from "./pages/parent_pages/Parent_forgetPassword/ParentForgetPass";
 import EvaluatorRequests from "./pages/employees_pages/EvaluatorRequests/EvaluatorRequests";
-
+import About from "./pages/website/About/About";
+import Contact from "./pages/website/Contact/Contact";
 
 function App() {
   const routes = createBrowserRouter([
-    { path: "/", element:<Website /> },
+    { path: "/", element:<Website />},
     { path: "/Registration", element:<Registration /> },
     { path: "/parent.login", element:<Parent_login /> },
     { path: "/parentRequest", element:<Parent_request /> },
     { path: "/parentForgetPassword", element:<ParentForgetPass/> },
+    { path: "/about", element:<About/> },
+    { path: "/contact", element:<Contact/> },
 
     { path: "/employees.login", element:<Employees_login /> },
     { path: "/employees.panal", element: <Layout /> ,
@@ -37,7 +40,7 @@ function App() {
       { path: "/employees.panal/groups", element:<Groups /> },
       { path: "/employees.panal/users", element:<Users /> },
       { path: "/employees.panal/requests", element:<Requests /> },
-      { path: "/employees.panal/busses", element:<Busses /> },
+      { path: "/employees.panal/busses", element:<Busses/> },
       { path: "/employees.panal/employees", element:<Employees /> },
       { path: "/employees.panal/EmployeeProfile", element:<EmployeeProfile /> },
       { path: "/employees.panal/EvaluatorRequests", element:<EvaluatorRequests /> },
