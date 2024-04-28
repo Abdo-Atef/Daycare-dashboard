@@ -53,6 +53,7 @@ export const getEmployeeProfile = createAsyncThunk('getEmployeeProfile',
         token : localStorage.getItem('employeeToken')
       }
       const data = await axios.get(`${BASE_URL}/employees/employeeProfile`, {headers});
+      
       return data.data
     } catch (error) {
       console.log(error);

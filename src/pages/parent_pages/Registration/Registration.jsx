@@ -3,14 +3,12 @@ import style from './style.module.css'
 import child from '../../../assets/form-child.jpg'
 import { useFormik } from 'formik'
 import * as yup from 'Yup'
-import axios from 'axios'
 import { useSelector } from 'react-redux'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { postDataToApi } from '../../../utils/api'
 export default function Registration() {
   const {parentToken}=useSelector((state)=>state.parent);
   const [Msg,setMsg]=useState(null);
-  const [MsgErr,setMsgErr]=useState(null);
   const [loading,setLoading]=useState(false)
   const navigate=useNavigate();
 
@@ -19,19 +17,24 @@ export default function Registration() {
     for (const key in value) {
       formData.append(key, value[key]);
     }
+    setLoading(true)
     const result=await postDataToApi("/requests/makeRequest",formData);
     if(result.sucess == true){
+        setMsg(result)
         setTimeout(()=>{
             setMsg(null)
-            window.open("https://mail.google.com", "_blank");
-        },2000)
+        },5000)
         setTimeout(()=>{
           navigate("/parent.login");
-        },2000)
+        },4000)
+        
     }else{
-        setMsg(result)
+      setMsg(result)
+      setTimeout(()=>{
+        setMsg(null)
+      },5000)
     }
-      
+      setLoading(false)
 
 }
 
@@ -87,7 +90,7 @@ export default function Registration() {
                   
                 </div>
                 <div className="row g-0">
-                  <div className="col-md-7   ">
+                  <div className="col-lg-7   ">
                     <div className='p-4 '>
                         <h1 className={style.heading}>Registration</h1>
                         <div className='p-3'>
@@ -99,7 +102,7 @@ export default function Registration() {
                       <img src={child} alt="child" className={`${style.childImage} w-100   rounded-end-3 h-100 d-none d-md-block`}  />
                     </div>
                   </div>
-                  <div className="col-md-5">
+                  <div className="col-lg-5">
                       
                       <form action="" className='p-4' onSubmit={formik.handleSubmit}>
                         <input type="text"  className={`${style.input} shadow-sm `} placeholder="parent name" name="parentName" value={formik.values.parentName} onBlur={formik.handleBlur} onChange={formik.handleChange} />
@@ -136,7 +139,7 @@ export default function Registration() {
                         </label>
                         <input type="file" id='backNationalId' className='d-none' name="backNationalId"  onChange={handleChangeFile} />
                         
-                        <label htmlFor="birthCertificate" className={`${style.cursor} shadow-sm  ${style.upload} py-3 mt-3 d-flex justify-content-between align-items-center `}>
+                        <label htmlFor="birthCertificate" className={`${style.cursor} shadow-sm ${style.upload} py-3 mt-3 d-flex justify-content-between align-items-center `}>
                           <div><i className="fa-solid fa-cloud-arrow-up fs-5"></i> birthCertificate</div>
                           <i className="fa-solid fa-circle-exclamation text-danger fs-5"></i>
                         </label>

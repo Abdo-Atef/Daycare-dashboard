@@ -13,7 +13,7 @@
   background-color: #303750;
 }
 .bg-nile{
-  background-color: #50B8E4;
+  background-color: #50B8E4 !important;
 }
 .text-nile{
   color: #50B8E4;
@@ -69,5 +69,23 @@ a{
 .AppContainer {
   transition: .5s;
 }
-
+.websiteNavBar .active{
+  color: #d81882 !important;
+  position: relative;
+}
+.websiteNavBar .active::after{
+  content: "";
+  height: 1px;
+  background-color: #d81882;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.bg-pink{
+  background-color: #d81882 !important;
+}
+.text-pink{
+  color: #d81882 !important;
+}
 /* End Global Styles */

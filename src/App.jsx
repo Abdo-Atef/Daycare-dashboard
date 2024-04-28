@@ -22,6 +22,8 @@ import ParentForgetPass from "./pages/parent_pages/Parent_forgetPassword/ParentF
 import 'react-toastify/dist/ReactToastify.css';
 import About from "./pages/website/About/About";
 import Contact from "./pages/website/Contact/Contact";
+import SpicificRequest from "./pages/employees_pages/spicificRequest/SpicificRequest";
+import Interview from "./pages/employees_pages/interview/Interview";
 function App() {
   const routes = createBrowserRouter([
     { path: "/", element:<Website />},
@@ -31,7 +33,6 @@ function App() {
     { path: "/parentForgetPassword", element:<ParentForgetPass/> },
     { path: "/about", element:<About/> },
     { path: "/contact", element:<Contact/> },
-
     { path: "/employees.login", element:<Employees_login /> },
     { path: "/employees.panal", element: <Layout /> ,
     children: [
@@ -39,9 +40,12 @@ function App() {
       { path: "/employees.panal/groups", element:<Groups /> },
       { path: "/employees.panal/users", element:<Users /> },
       { path: "/employees.panal/requests", element:<Requests /> },
+      { path: "/employees.panal/SpicificRequest/:id", element:<SpicificRequest/> },
       { path: "/employees.panal/busses", element:<Busses/> },
       { path: "/employees.panal/employees", element:<Employees /> },
       { path: "/employees.panal/EmployeeProfile", element:<EmployeeProfile /> },
+      { path: "/employees.panal/interview", element:<Interview/> },
+
     ],
   } ,
   { path: "/employees.ForgetPassword", element:<ForgetPassword /> },

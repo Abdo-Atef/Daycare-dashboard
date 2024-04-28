@@ -2,7 +2,7 @@ import React from 'react'
 import style from "./Banar.module.css"
 export default function Banar() {
 return (
-        <div style={{paddingTop:100}}>
+        <div style={{paddingTop:80}}>
             <div id="carouselExampleInterval" className="carousel slide " data-bs-ride="carousel">
                 <div className="carousel-inner">
                         <div className="carousel-item active" data-bs-interval="1500">

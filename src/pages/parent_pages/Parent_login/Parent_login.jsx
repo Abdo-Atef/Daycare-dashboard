@@ -4,7 +4,6 @@ import child from '../../../assets/login.jpg'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
 import * as yup from 'Yup'
-import axios from 'axios'
 import { postDataToApi } from '../../../utils/api'
 import { useDispatch, useSelector } from 'react-redux'
 import { useState } from 'react'
@@ -44,16 +43,17 @@ export default function Parent_login() {
   return (
     <div className={style.login}>
       <div className="container">
-        <div className=' d-flex justify-content-center align-items-center vh-100'>
-            <div className={` bg-white shadow  rounded-3`}>
-                <div className="row g-3">
-                  <div className="col-md-5">
+        <div className=' d-flex justify-content-center align-items-center vh-100 '>
+            <div className={` bg-white shadow  rounded-3 `}>
+                <div className="row g-4">
+                  <div className="col-lg-5">
                     <div >
                       <img src={child} alt="child" className={`w-100 rounded-3 `} style={{height:400}}  />
                     </div>
                   </div>
-                  <div className=" col-md-7 my-auto  ">
-                      <div className='p-sm-3 p-md-4 p-xl-0'>
+                  <div className=" col-lg-7 my-auto ">
+                      <div className='p-3'>
+                      <div className=''>
                         <h1 className={`${style.heading} ${style.spacing10} `}>Login</h1>
                       </div>
                         {errorMsg?<p className='text-danger'>{errorMsg}</p>:""}
@@ -73,6 +73,7 @@ export default function Parent_login() {
                           <p><Link to="/parentForgetPassword"  className={style.textColor2}>Forget Password?</Link> </p> 
                         </div>
                       </form>
+                      </div>
                   </div>
                 </div>
             </div>

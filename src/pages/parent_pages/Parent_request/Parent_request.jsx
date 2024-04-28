@@ -107,7 +107,7 @@ export default function ParentRequest() {
                     </div>
                   </div>
                   <div className="col-xl-8 col-md-7">
-                    <div className={`${style.bgCard} p-4 d-flex justify-content-between align-items-center shadow rounded mt-2 `}>
+                    <div className={`${style.bgCard} p-4 d-flex justify-content-center gap-5   align-items-center shadow rounded mt-2 `}>
                         <p  className={`${style.cursor} h6 ${showPage=="MyData"?'text-danger border-bottom border-danger-subtle  border-3 p-1':''}`} onClick={()=>setShowPage("MyData")}>My Data</p>
                         <p className={`${style.cursor} h6 ${showPage=="ChangePassword"?'text-danger border-bottom border-danger-subtle  border-3 p-1':''}` } onClick={()=>setShowPage("ChangePassword")}>Change Password</p>
                         <p className={`${style.cursor} h6 ${showPage=="ChangeData"?'text-danger border-bottom border-danger-subtle  border-3 p-1':''}`} onClick={()=>setShowPage("ChangeData")}>Change Data</p>
@@ -141,9 +141,16 @@ function MyData(){
   const [request, setRequest] = useState(null);
   const [fileLoading,setFileLoading]=useState(false);
   const [info,setInfo]=useState(null);
+  const navigate=useNavigate();
+  const dispatch=useDispatch();
+  function logOut(){
+    localStorage.removeItem("parentToken");
+    dispatch(setParentToken(null))
+    navigate("/parent.login")
+  }
   function DeleteRequest(){
     Swal.fire({
-      title: "بعتني بكام يصحبي?",
+      title: "هتعمل اي ي مجنون ؟",
       showCancelButton: true,
       confirmButtonText: "Delete Request",
     }).then(async (result) => { 

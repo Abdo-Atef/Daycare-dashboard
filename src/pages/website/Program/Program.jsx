@@ -10,7 +10,7 @@ export default function Program() {
         <TitleWebsite title="Educational Programs" secondParg="services for working families to ensure every child." firstParg="Kidzo mission is to provide affordable, high-quality early education and childcare"/>
         <div className='container py-5'>
             <div className="row g-3">
-                <div className="col-md-4">
+                <div className="col-md-4" data-aos="zoom-in" >
                     <div className={`h-100 ${style.programBgNile} shadow rounded-4 p-4 ${style.CardTranslate}`}>
                         <div className='d-flex justify-content-center align-items-center p-4'>
                             <img src={horse1}  alt="horse1" />
@@ -21,18 +21,18 @@ export default function Program() {
                         </div>
                     </div>
                 </div>
-                <div className="col-md-4">
+                <div className="col-md-4" data-aos="zoom-in-up">
                     <div className={`h-100 ${style.programBgBlue} shadow rounded-4 p-4 ${style.CardTranslate}`}>
                         <div className='d-flex justify-content-center align-items-center p-4'>
                             <img src={horse2}  alt="horse1" />
                         </div>
-                        <div className='text-center text-white'>
+                        <div className='text-center text-white' >
                             <h3 className='fw-bold'>Area For Bebies</h3>
                             <p className='p-4'>Excepteur sint occaecat cupidatat officia non proident, sunt in culpa qui deserunt mollit anim</p>
                         </div>
                     </div>
                 </div>
-                <div className="col-md-4">
+                <div className="col-md-4" data-aos="zoom-in" >
                     <div className={`h-100 ${style.programBgRed} shadow rounded-4 p-4 ${style.CardTranslate}`}>
                         <div className='d-flex justify-content-center align-items-center p-4'>
                             <img src={horse3}  alt="horse1" />
