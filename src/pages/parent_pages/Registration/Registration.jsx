@@ -9,9 +9,33 @@ import { postDataToApi } from '../../../utils/api'
 export default function Registration() {
   const {parentToken}=useSelector((state)=>state.parent);
   const [Msg,setMsg]=useState(null);
-  const [loading,setLoading]=useState(false)
-  const navigate=useNavigate();
+  const [loading,setLoading]=useState(false);
+  const [togglePass,setTogglePass]=useState(false)
+  const [togglePass2,setTogglePass2]=useState(false)
 
+  function handleToggle(){
+    setTogglePass(!togglePass)
+  }
+  function handleToggle2(){
+    setTogglePass2(!togglePass2)
+  }
+  const navigate=useNavigate();
+  const RegionList=[
+    "Abbassiya", "Agouza", "Ain Shams", "Bab al-Louq", "Bulaq", "Dar El Salam",
+    "Darb al-Ahmar", "Dokki", "Downtown Cairo Wust El Balad", "El Agouzah", 
+    "El Basatin", "El Basateen", "El Darassa", "El Gamaliya", "El Giza", 
+    "El Khalifa", "El Katameya", "El Khalifa", "El Khanka", "El Maasara", 
+    "El Marg", "El Matareya", "El Manyal", "El Masara", "El Matariya", 
+    "El Mohandessin", "El Mosheer", "El Moski", "El Nasr City", "El Nozha", 
+    "El Omraneya", "El Rehab City", "El Sahel", "El Salam City", "El Sayeda Zainab", 
+    "El Sharabeya", "El Shorouk City", "El Tebeen", "El Waily", "El Waili", 
+    "El Warraq", "El Zeitoun", "Garden City", "Giza Square", "Hadaiek Helwan", 
+    "Hadayek El Ahram", "Hadayek El Kobba", "Hadayek El Maadi", "Hadayek El Kobba", 
+    "Hadayek El Maadi", "Hadayek Helwan", "Heliopolis", "Helwan", "Helwan City", 
+    "Imbaba", "Maadi", "Manial", "Mokattam", "Nasr City", "New Cairo", 
+    "Rod El-Farag", "Sayeda Zeinab", "Shorouk City", "Shubra", "Wust El Balad", 
+    "Zamalek"
+  ]
   async function signup(value) {
     const formData = new FormData();
     for (const key in value) {
@@ -50,7 +74,25 @@ export default function Registration() {
       birthDate:yup.date().required(),
       childNationalId:yup.string().matches(/^(\d){14}$/,"parent national id is invalid").length(14).required("child national id is required"),
       location:yup.string().min(10,"min length 10 character").max(50,"max length is 50 character").required("location is required"),
-  })
+      region: yup.string()
+      .oneOf([
+        "Abbassiya", "Agouza", "Ain Shams", "Bab al-Louq", "Bulaq", "Dar El Salam",
+        "Darb al-Ahmar", "Dokki", "Downtown Cairo Wust El Balad", "El Agouzah", 
+        "El Basatin", "El Basateen", "El Darassa", "El Gamaliya", "El Giza", 
+        "El Khalifa", "El Katameya", "El Khalifa", "El Khanka", "El Maasara", 
+        "El Marg", "El Matareya", "El Manyal", "El Masara", "El Matariya", 
+        "El Mohandessin", "El Mosheer", "El Moski", "El Nasr City", "El Nozha", 
+        "El Omraneya", "El Rehab City", "El Sahel", "El Salam City", "El Sayeda Zainab", 
+        "El Sharabeya", "El Shorouk City", "El Tebeen", "El Waily", "El Waili", 
+        "El Warraq", "El Zeitoun", "Garden City", "Giza Square", "Hadaiek Helwan", 
+        "Hadayek El Ahram", "Hadayek El Kobba", "Hadayek El Maadi", "Hadayek El Kobba", 
+        "Hadayek El Maadi", "Hadayek Helwan", "Heliopolis", "Helwan", "Helwan City", 
+        "Imbaba", "Maadi", "Manial", "Mokattam", "Nasr City", "New Cairo", 
+        "Rod El-Farag", "Sayeda Zeinab", "Shorouk City", "Shubra", "Wust El Balad", 
+        "Zamalek"
+      ],"This region is not available").required("Region is required"),
+      
+    })
   const formik=useFormik({
     initialValues:{
       parentName:'',
@@ -59,11 +101,12 @@ export default function Registration() {
       rePassword:'',
       phone:'',
       job:'',
-      childName:"",
-      parentNationalId:"",
-      birthDate:"",
-      childNationalId:"",
-      location:"",
+      childName:'',
+      parentNationalId:'',
+      birthDate:'',
+      childNationalId:'',
+      location:'',
+      region:'',
       frontNationalId:null,
       backNationalId:null,
       birthCertificate:null,
@@ -81,17 +124,11 @@ export default function Registration() {
   return (
     <div className={style.registeration}>
       <div className="container">
-        <div className=' d-flex align-items-center justify-content-center  p-5 '>
-            <div className={` rounded-3 shadow bg-white`}>
-                <div className='d-flex justify-content-center mt-4 '>
-                  <div >
-                      {Msg?.sucess == true?<div className={`text-center p-4 ${style.BgGreenRegestration} shadow rounded-3`}><p className='text-success'>{Msg.message}</p></div>:Msg?.sucess == false ?<div className={`text-center p-4 ${style.BgGreenRegestration} shadow rounded-3`}><p className='text-danger'>{Msg?.error}</p></div>:""}
-                  </div>
-                  
-                </div>
-                <div className="row g-0">
-                  <div className="col-lg-7   ">
-                    <div className='p-4 '>
+        <div className='p-5'>
+            <div className={` rounded-3 shadow bg-white `}>
+                <div className="row g-2">
+                  <div className="col-lg-7">
+                    <div className='p-3'>
                         <h1 className={style.heading}>Registration</h1>
                         <div className='p-3'>
                           <p className={`${style.textColor} fs-4`}>Want to see your child better?</p>
@@ -99,19 +136,26 @@ export default function Registration() {
                         </div>
                     </div>
                     <div >
-                      <img src={child} alt="child" className={`${style.childImage} w-100   rounded-end-3 h-100 d-none d-md-block`}  />
+                      <img src={child} alt="child" className={`${style.childImage} w-100   rounded-end-3  d-none d-md-block`} style={{height:900}}  />
                     </div>
                   </div>
                   <div className="col-lg-5">
                       
-                      <form action="" className='p-4' onSubmit={formik.handleSubmit}>
-                        <input type="text"  className={`${style.input} shadow-sm `} placeholder="parent name" name="parentName" value={formik.values.parentName} onBlur={formik.handleBlur} onChange={formik.handleChange} />
+                      <form action="" className='p-3' onSubmit={formik.handleSubmit}>
+                        <input type="text"  className={`${style.input} shadow-sm`} placeholder="parent name" name="parentName" value={formik.values.parentName} onBlur={formik.handleBlur} onChange={formik.handleChange} />
                         {formik.errors.parentName&&formik.touched.parentName?<p className='text-danger mt-1'>{formik.errors.parentName}</p>:""}
                         <input type="email" className={`${style.input} mt-3 shadow-sm`} placeholder="email"  name='email' value={formik.values.email} onBlur={formik.handleBlur} onChange={formik.handleChange}  />
                         {formik.errors.email&&formik.touched.email?<p className='text-danger mt-1'>{formik.errors.email}</p>:""}
-                        <input type="password"  className={`${style.input} mt-3 shadow-sm`} placeholder="password" name="password" value={formik.values.password} onBlur={formik.handleBlur} onChange={formik.handleChange}  />
+                        <div className={`${style.input} mt-3 p-0 shadow-sm d-flex  align-items-center   `}>
+                            <input type={`${togglePass?"text":"password"}`}  className={`${style.input}`} placeholder="password" name="password" value={formik.values.password} onBlur={formik.handleBlur} onChange={formik.handleChange}  />
+                            <i onClick={()=>handleToggle()} className={`fa-solid ${togglePass?'fa-eye':'fa-eye-slash'}  px-2 text-night`}></i>
+                        </div>
                         {formik.errors.password&&formik.touched.password?<p className='text-danger mt-1'>{formik.errors.password}</p>:""}
-                        <input type="password" id='rePassword' className={`${style.input} mt-3 shadow-sm`} placeholder="confirm password" name="rePassword" value={formik.values.rePassword} onBlur={formik.handleBlur} onChange={formik.handleChange}  />
+                        
+                        <div className={`${style.input} mt-3 p-0 shadow-sm d-flex  align-items-center   `}>
+                            <input type={`${togglePass2?"text":"password"}`} id='rePassword' className={`${style.input}`} placeholder="confirm password" name="rePassword" value={formik.values.rePassword} onBlur={formik.handleBlur} onChange={formik.handleChange}  />
+                            <i onClick={()=>handleToggle2()} className={`fa-solid ${togglePass2?'fa-eye':'fa-eye-slash'}  px-2 text-night`}></i>
+                        </div>
                         {formik.errors.rePassword&&formik.touched.rePassword?<p className='text-danger mt-1'>{formik.errors.rePassword}</p>:""}
                         <input type="text"  className={`${style.input} mt-3 shadow-sm`} placeholder="phone" name="phone" value={formik.values.phone} onBlur={formik.handleBlur} onChange={formik.handleChange}  />
                         {formik.errors.phone&&formik.touched.phone?<p className='text-danger mt-1'>{formik.errors.phone}</p>:""}
@@ -127,25 +171,31 @@ export default function Registration() {
                         {formik.errors.childNationalId&&formik.touched.childNationalId?<p className='text-danger mt-1'>{formik.errors.childNationalId}</p>:""}
                         <input type="text"  className={`${style.input} mt-3 shadow-sm`}placeholder='location' name="location" value={formik.values.location} onBlur={formik.handleBlur} onChange={formik.handleChange}/>
                         {formik.errors.location&&formik.touched.location?<p className='text-danger mt-3'>{formik.errors.location}</p>:""}
+                        <input type="text"  className={`${style.input} mt-3 shadow-sm`} list="region-list" placeholder='region' name="region" value={formik.values.region} onBlur={formik.handleBlur} onChange={formik.handleChange}/>
+                        {formik.errors.region&&formik.touched.region?<p className='text-danger mt-3'>{formik.errors.region}</p>:""}
+                        <datalist id='region-list'>
+                          {RegionList.map((region)=><option value={region}>{region}</option>)}
+                        </datalist>
                         <label htmlFor="frontNationalId" className={`${style.cursor}  ${style.upload} shadow-sm py-3 mt-3 d-flex justify-content-between align-items-center `}>
                           <div><i className="fa-solid fa-cloud-arrow-up  fs-5"></i> frontNationalId</div>
                           <i className="fa-solid fa-circle-exclamation text-danger fs-5"></i>
                         </label>
                         <input type="file" id='frontNationalId' className='d-none' name="frontNationalId"  onChange={handleChangeFile} />
-                        
                         <label htmlFor="backNationalId" className={`${style.cursor}  ${style.upload} shadow-sm py-3 mt-3 d-flex justify-content-between align-items-center `}>
                         <div><i className="fa-solid fa-cloud-arrow-up fs-5"></i> backNationalId</div>
                           <i className="fa-solid fa-circle-exclamation text-danger fs-5"></i>
                         </label>
                         <input type="file" id='backNationalId' className='d-none' name="backNationalId"  onChange={handleChangeFile} />
-                        
+
                         <label htmlFor="birthCertificate" className={`${style.cursor} shadow-sm ${style.upload} py-3 mt-3 d-flex justify-content-between align-items-center `}>
                           <div><i className="fa-solid fa-cloud-arrow-up fs-5"></i> birthCertificate</div>
                           <i className="fa-solid fa-circle-exclamation text-danger fs-5"></i>
                         </label>
                         <input type="file" id='birthCertificate' className='d-none' name="birthCertificate"  onChange={handleChangeFile} />
-                        
-                        <div className='d-flex justify-content-center '>
+                        <div >
+                            {Msg?.sucess == true?<div className={`text-center`}><p className='text-success'>{Msg.message}</p></div>:Msg?.sucess == false ?<div className={`text-center`}><p className='text-danger'>{Msg?.error}</p></div>:""}
+                        </div>
+                        <div className='d-flex justify-content-center mt-4'>
                           
                           {
                                 loading?<button className={`btn ${style.btnRegister} w-50 border-0 shadow-sm `} disabled ><i className="fa-solid fa-spinner fa-spin-pulse"></i></button>

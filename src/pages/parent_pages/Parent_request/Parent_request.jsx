@@ -96,10 +96,10 @@ export default function ParentRequest() {
                         <p className="text-center fs-5">{request?.resulsts?.childName}</p>
                       </div>
                       <form action="" className="d-flex flex-column justify-content-center" onSubmit={formikImage.handleSubmit}>
-                        <label htmlFor="photo" className={`d-flex flex-column align-items-center  ${style.bgDownload} rounded-3 shadow p-3 ${style.cursor}`}>
+                        <label htmlFor="photo" className={`d-flex flex-column align-items-center  ${style.bgDownload} rounded-3 shadow p-5 ${style.cursor}`}>
                           <i className={`fa-solid fa-arrow-up-from-bracket fs-3  ${style.textColor} `}></i>
                           {fileLoading?<button className={`${style.changeAvatar} mt-3 border-0 shadow `} disabled ><i className="fa-solid fa-spinner fa-spin-pulse"></i></button>
-                          :<button type='submit' className={`mt-3  border-0  px-4 rounded-3 ${style.changeAvatar}`} disabled={!(formikImage.dirty&&formikImage.isValid)} >change</button>
+                          :<button type='submit' className={`mt-3  border-0  px-4 rounded-3 ${style.changeAvatar} ${!(formikImage.dirty&&formikImage.isValid)?"d-none":""}`} disabled={!(formikImage.dirty&&formikImage.isValid)} >change</button>
                           }
                         </label>
                         <input type="file" id="photo" className="text-white d-none" name="profilePicture" onChange={handleChangeProfile} />
@@ -150,7 +150,7 @@ function MyData(){
   }
   function DeleteRequest(){
     Swal.fire({
-      title: "هتعمل اي ي مجنون ؟",
+      title: "Are you sure cancel submission?",
       showCancelButton: true,
       confirmButtonText: "Delete Request",
     }).then(async (result) => { 
@@ -158,7 +158,7 @@ function MyData(){
         try {
           const response = await axios.delete(`${BASE_URL}/requests/deleteRequest`, { headers: { token: parentToken } });
           logOut();
-          Swal.fire("مشفش وشك تاني", "", "success");
+          Swal.fire("cancel submission successfully", "", "success");
         } catch (error) {
           Swal.fire("Error", "An error occurred while deleting the request", "error");
         }
@@ -386,15 +386,15 @@ function ChangeData(){
   return <>
       <div className="row flex-row-reverse g-4 mt-2 justify-content-center ">
                     {
-                      request?.resulsts.evaluatedBy==null?<>
+                      request?.resulsts.evaluatedBy == null?<>
                         <div className="col-md-6">
                             <form className={`${style.bgCard} p-4 rounded-3 shadow d-flex flex-column  justify-content-center align-items-center`} onSubmit={formikUpdateFile.handleSubmit}>
                               <label htmlFor="birthCertificate" className={`${style.bgDownload} w-100 p-5 rounded-3 shadow ${style.cursor}`}>
                                 <i className={`fa-solid fa-cloud-arrow-up fs-1 d-flex justify-content-center ${style.textColor} p-4 `}></i>
                                 <h4 className={`text-center fs-5 ${style.textColor} `}>Birth Certificate</h4>
                                 {
-                                  cirtificateLoading?<button className={`${style.changeAvatar} mt-3 border-0 shadow `} disabled ><i className="fa-solid fa-spinner fa-spin-pulse"></i></button>
-                                  :<button type='submit' className={`${style.changeAvatar} mt-2 border-0 shadow`} disabled={!(formikUpdateFile.dirty&&formikUpdateFile.isValid)} >Change Certificate</button>
+                                  cirtificateLoading?<button className={`${style.changeAvatar} mt-3 border-0 shadow`} disabled ><i className="fa-solid fa-spinner fa-spin-pulse"></i></button>
+                                  :<button type='submit' className={`${style.changeAvatar} mt-2 border-0 shadow ${!(formikUpdateFile.dirty&&formikUpdateFile.isValid)?"d-none":""}`}>Change Certificate</button>
                                 }
                               </label>
                               <input type="file" id='birthCertificate' className='d-none' name="birthCertificate" onChange={handleChangeFile} />
@@ -412,7 +412,7 @@ function ChangeData(){
                                 <h4 className={`text-center fs-5 ${style.textColor} `}>Front & Back national Id</h4>
                                 {
                                   NationLoading?<button className={`${style.changeAvatar} mt-3 border-0 shadow `} disabled ><i className="fa-solid fa-spinner fa-spin-pulse"></i></button>
-                                  :<button type='submit' className={`${style.changeAvatar} mt-2 border-0 shadow`} disabled={!(formikNational.dirty&&formikNational.isValid)} >Change National Id</button>
+                                  :<button type='submit' className={`${style.changeAvatar} mt-2 border-0 shadow ${!(formikNational.dirty&&formikNational.isValid)?"d-none":""}`} >Change National Id</button>
                                 }
                               </label>
                               <input  type="file" id='nationalId' className='d-none' name="nationalId" onChange={handleChangeNationId} multiple />

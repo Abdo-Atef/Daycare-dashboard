@@ -14,6 +14,10 @@ export default function Parent_login() {
   const navigate=useNavigate();
   const dispatch=useDispatch();
   const [errorMsg,setErrorMsg]=useState(null);
+  const [togglePass,setTogglePass]=useState(false)
+  function handleToggel(){
+    setTogglePass(!togglePass)
+  }
   async function login(value){
     setLoading(true)
     const  result=await postDataToApi("/requests/login",value)
@@ -60,7 +64,10 @@ export default function Parent_login() {
                       <form action="" className='p-3' onSubmit={formik.handleSubmit}>
                         <input type="email"  className={`${style.input} mt-1 shadow-sm `} placeholder="Enter your email" name="email" value={formik.values.email} onChange={formik.handleChange} onBlur={formik.handleBlur} />
                         {formik.errors.email&&formik.touched.email?<p className='text-danger mt-1'>{formik.errors.email}</p>:""}
-                        <input type="password"  className={`${style.input} mt-3 shadow-sm`} placeholder="Enter your password" name="password" value={formik.values.password} onChange={formik.handleChange} onBlur={formik.handleBlur}  />
+                        <div className={`${style.input} mt-3 shadow-sm p-0 d-flex align-items-center `}>
+                          <input type={`${togglePass?"text":"password"}`}  className={`${style.input}`} placeholder="Enter your password" name="password" value={formik.values.password} onChange={formik.handleChange} onBlur={formik.handleBlur}  />
+                          <i onClick={()=>handleToggel()} className={`fa-solid ${togglePass?'fa-eye':'fa-eye-slash'}  px-2 text-night`}></i>
+                        </div>
                         {formik.errors.password&&formik.touched.password?<p className='text-danger mt-1'>{formik.errors.password}</p>:""}
                         <div className='d-flex justify-content-center  my-1'>
                           {

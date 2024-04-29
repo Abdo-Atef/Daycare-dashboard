@@ -4,7 +4,7 @@ import logo from "../../assets/logo.png";
 
 export default function NavBarWebsite() {
     return (
-        <nav className="websiteNavBar navbar navbar-expand-lg bg-white   position-fixed fixed-top">
+        <nav className="websiteNavBar navbar navbar-expand-lg bg-white   position-fixed fixed-top shadow">
             <div className="container">
                 <Link className="navbar-brand" to="/">
                     <img src={logo} style={{ width: '150px',objectFit:"cover",height:60 }} alt="logo" />
