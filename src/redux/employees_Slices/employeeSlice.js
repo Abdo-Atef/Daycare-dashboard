@@ -10,7 +10,7 @@ export const getAllemployees = createAsyncThunk('getAllemployees',
         token : localStorage.getItem('employeeToken')
       }
       const data = await axios.get(`${BASE_URL}/employees/getAllEmployee?role=${role}`, {headers});
-      console.log(data.data);
+      // console.log(data.data);
       return data.data
     } catch (error) {
       console.log(error);
@@ -26,7 +26,7 @@ export const getSpEmployee = createAsyncThunk('getSpEmployee',
         token : localStorage.getItem('employeeToken')
       }
       const data = await axios.get(`${BASE_URL}/employees/getSpEmployee/${id}`, {headers});
-      console.log(data.data);
+      // console.log(data.data);
     } catch (error) {
       console.log(error);
     }
