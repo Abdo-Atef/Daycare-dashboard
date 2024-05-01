@@ -98,3 +98,21 @@ a{
   color: #d81882 !important;
 }
 /* End Global Styles */
+
+.rdp-button{
+  background-color: hsla(227, 25%, 25%,.35) !important;
+  border: 0;
+  outline: 0;
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+  border-radius: 4px;
+  color:#fff
+}
+.rdp-day_selected{
+  background-color: hsla(178, 79%, 39%,.45) !important;
+}
+.rdp-day_selected:hover {
+  background-color: hsla(178, 79%, 39%,.45) !important;
+  opacity: 1;
+}

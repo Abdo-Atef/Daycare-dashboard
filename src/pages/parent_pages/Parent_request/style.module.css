@@ -1,6 +1,6 @@
 :root{
-    --bg-body:rgba(236, 115, 34, 0.4);
-    --back-ground1:rgb(251, 243, 213);
+    --bg-body:hsla(24, 64%, 53%, 0.4);
+    --back-ground1:#fbf3d5;
     --text-color:rgba(205, 87, 8, 0.7);
 }
 
@@ -61,6 +61,14 @@
 .bgAcceptedRequest{
     background-color: hsla(111, 79%, 31%, 0.47);
     border: 2px solid hsla(111, 79%, 31%, 0.55);
+}
+.bgWatingRequest{
+    background-color: hsla(62, 55%, 49%, 0.47);
+    border: 2px solid hsla(56, 68%, 46%, 0.55);
+}
+.bgInterviewingRequest{
+    background-color: hsla(321, 65%, 52%, 0.47);
+    border: 2px solid hsla(315, 51%, 48%, 0.55);
 }
 .cancel{
     background-color: rgba(231, 41, 41,.7);

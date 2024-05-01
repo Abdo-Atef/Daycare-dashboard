@@ -23,8 +23,8 @@ export default function Requests() {
                   userRequest?.requests.map((user)=><div className="col-md-12 col-lg-5 col-xl-4" key={user?.id}>
                       <div className='bg-white shadow   rounded-2 p-2 h-100'>
                           <div className='border-bottom px-1 border-2 d-flex align-items-center gap-3'>
-                              <div className='text-center p-2 bg-secondary bg-opacity-10 rounded-circle' style={{width:50,height:50}}>
-                                  <i className="fa-solid fa-user fs-3"></i>
+                              <div >
+                                      {user?.profilePicture?.secure_url === undefined ? (<div className='text-center p-2 bg-secondary bg-opacity-10 rounded-circle' style={{width:50,height:50}}><i className="fa-solid fa-user fs-3"></i></div>) : (<img src={user?.profilePicture.secure_url} style={{width:50,height:50}} className='rounded-circle' alt={user?.parentName} />)}                              
                               </div>
                               <div className='mt-3'>
                                   <p className=''>{user?.parentName}</p>

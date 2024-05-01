@@ -121,6 +121,18 @@ export default function ParentRequest() {
                 </div>
               )}
               {
+                request?.resulsts.state == "interviewing"?<div className={`${style.bgInterviewingRequest}  mt-4 p-5 text-center rounded-3`}>
+                  <p className='mt-3 mt-3 fs-5 text-white '>The Day interview: {request.resulsts.dateOfInterviewing !=null?request.resulsts.dateOfInterviewing?.slice(0,10):"soon"}</p>
+                  <p className='mt-3 mt-3 fs-5 text-white '>The Time interview: {request.resulsts.dateOfInterviewing !=null?request.resulsts.dateOfInterviewing?.slice(12,16):"soon"}</p>
+
+                </div>:""
+              }
+              {
+                request?.resulsts.state == "waiting"?<div className={`${style.bgWatingRequest}  mt-4 p-5 text-center rounded-3`}>
+                  <p className='mt-3 mt-3 fs-5 text-white '>The result show soon</p>
+                </div>:""
+              }
+              {
                 request?.resulsts.state == "refused"?<div className={`${style.bgRefusedRequest}  mt-4 p-5 text-center rounded-3`}>
                   <p className='mt-3 mt-3 fs-5 text-white '>{request?.resulsts.condition}</p>
                 </div>:""

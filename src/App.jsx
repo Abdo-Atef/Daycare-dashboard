@@ -24,6 +24,7 @@ import About from "./pages/website/About/About";
 import Contact from "./pages/website/Contact/Contact";
 import SpicificRequest from "./pages/employees_pages/spicificRequest/SpicificRequest";
 import Interview from "./pages/employees_pages/interview/Interview";
+import ResultIntervew from "./pages/employees_pages/ResultInterviewsForAllinterviewer/ResultIntervew";
 function App() {
   const routes = createBrowserRouter([
     { path: "/", element:<Website />},
@@ -45,6 +46,7 @@ function App() {
       { path: "/employees.panal/employees", element:<Employees /> },
       { path: "/employees.panal/EmployeeProfile", element:<EmployeeProfile /> },
       { path: "/employees.panal/interview", element:<Interview/> },
+      { path: "/employees.panal/interview/resultsInterview", element:<ResultIntervew/> },
       { path: "/employees.panal/EvaluatorRequests", element:<EvaluatorRequests /> },
     ],
   } ,

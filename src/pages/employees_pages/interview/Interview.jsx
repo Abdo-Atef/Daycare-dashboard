@@ -2,21 +2,28 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import ModelInterview from '../../../components/modelInterview/ModelInterview';
 import { SearchInterviwByEmail, getAllInterview } from '../../../redux/interviewer_Slices/interviewerSlice';
+import ModelConditionInterview from '../../../components/modelConditionInterview/ModelConditionInterview';
+import { Link } from 'react-router-dom';
 
 export default function Interview() {
     const {interviews}=useSelector(state=>state.interviewer)
     const [model,setModel]=useState(false)
+    const [modelResult,setModelResult]=useState(false)
     const [interviewData,setInterviewData]=useState(null)
+    let dispatch=useDispatch();
     function handleModel(data){
         setModel(true)
         setInterviewData(data)
     }
-    let dispatch=useDispatch();
+    function handleModelCondition(data){
+        setModelResult(true)
+        setInterviewData(data)
+    }
     const handleEndPoint=(endPoint)=>{
         dispatch(getAllInterview(endPoint))
     }
     const SearchByEmail=(email)=>{
-        dispatch(SearchInterviwByEmail(email))
+      email.length>0?dispatch(SearchInterviwByEmail(email)):dispatch(getAllInterview())
     }
     useEffect(()=>{
         dispatch(getAllInterview())
@@ -25,16 +32,16 @@ export default function Interview() {
     <div className='vh-100'>
         <div className="container">
             <div className="p-4">
-                <div className='py-4 d-flex justify-content-between '>
-                    <div className='w-50 '>
+                <div className='py-4 d-flex justify-content-between flex-wrap'>
+                    <div className='' style={{width:400}}>
                         <input type="email" onChange={(e)=>SearchByEmail(e.target.value)} placeholder='email' className='form-control shadow'  />
                     </div>
-                    <select className='p-2  rounded-2 border-0 shadow' onChange={(e)=>handleEndPoint(e.target.value)}>
+                    <select className='p-2  rounded-2 border-0 shadow ' onChange={(e)=>handleEndPoint(e.target.value)}>
                         <option value="allIntervieweingStageForInterviewer">All</option>
-                        <option value="getAllRequetsThatHaveTimeForInterviewer">interviewing have time</option>
-                        <option value="notHaveTimeForInterviewer">interviewing have not time</option>
+                        <option value="getAllRequetsThatHaveTimeForInterviewer">interviewes have time</option>
+                        <option value="notHaveTimeForInterviewer">interviewes have not time</option>
                     </select>
-                    
+                    <Link className='btn btn-night' to="/employees.panal/interview/resultsInterview">show results interview</Link>
                 </div>
                 <div className="row g-4">
                     {interviews?.requests.length > 0?
@@ -68,31 +75,45 @@ export default function Interview() {
                                         <span className='ms-3'>{interview?.location}</span>
                                     </div>
                                     <div className='p-2'>
-                                        <i className="fa-solid fa-calendar text-night"></i>
+                                        <i className="fa-solid fa-cake-candles text-night"></i>
                                         <span className='ms-3'>{interview?.birthDate.slice(0,10)}</span>
                                     </div>
                                     <div className='p-2'>
+                                        <i className="fa-solid fa-inbox text-night"></i>
+                                        <span className='ms-3'>{interview?.state}</span>
+                                    </div>
+                                    <div className='p-2'>
+                                        <i className="fa-solid fa-calendar-days text-night"></i>
+                                        <span className='ms-3 text-success'>{interview?.dateOfInterviewing!=null?"interview Day":""} {interview?.dateOfInterviewing!=null?interview.dateOfInterviewing?.slice(0,10):<span className='text-danger'>The interview time has not been set</span>}</span>
+                                    </div>
+                                    <div className='p-2'>
                                         <i className="fa-solid fa-clock text-night"></i>
-                                        <span className='ms-3 text-success'>{interview?.dateOfInterviewing!=null?interview.dateOfInterviewing:<span className='text-danger'>The interview time has not been set</span>}</span>
+                                        <span className='ms-3 text-success'>{interview?.dateOfInterviewing!=null?"interview Time":""} {interview?.dateOfInterviewing!=null?interview.dateOfInterviewing.slice(12,16):<span className='text-danger'>The interview time has not been set</span>}</span>
                                     </div>
                             </div>
                             {
-                                interview.dateOfInterviewing==null?<div onClick={()=>handleModel(interview)} className='position-absolute top-0 end-0 m-2 cursor  cursor-pointer ' title="add time">
-                                        <i className="fa-solid fa-calendar-plus fs-3"></i>
-                                        
-                                </div>:<div onClick={()=>handleModel(interview)} className='position-absolute top-0 end-0  m-2 cursor  cursor-pointer ' title="update time">
-                                        <i className="fa-solid fa-square-pen fs-3"></i>
+                                interview.dateOfInterviewing==null?<div onClick={()=>handleModel(interview)} className='position-absolute top-0 end-0 m-2   cursor-pointer ' title="add time">
+                                            <i className="fa-solid fa-calendar-plus fs-3"></i>
+                                </div>:<div onClick={()=>handleModel(interview)} className='position-absolute top-0 end-0  m-2   cursor-pointer ' title="update time">
+                                        {interview.state == "interviewing"?<i className="fa-solid fa-square-pen fs-3"></i>:""}
                                     </div>
                             }
-                          
+                            {
+                                interview?.state=="interviewing"?<div className='position-absolute top-0 end-0 mt-5 p-2' onClick={()=>handleModelCondition(interview)}>
+                                    {interview.dateOfInterviewing==null?"":<i className="fa-solid fa-square-plus fs-3 cursor-pointer" title="add codition"></i>} 
+                                </div>:""
+                            }
                         </div>
                     </div>)}
                     </>
                     :<div className='p-5'>
-                        <h3 className='text-center'>There is no interview now</h3>
+                        <h3 className='text-center'>There is no interviews now</h3>
                     </div>}
                     {
                                 model&&<ModelInterview show={model}  onHide={()=>setModel(false)} interviewData={interviewData}/>
+                    }
+                    {
+                            modelResult&&<ModelConditionInterview show={modelResult} interviewData={interviewData} onHide={()=>setModelResult(false)}/>
                     }
                 </div>
             </div>
