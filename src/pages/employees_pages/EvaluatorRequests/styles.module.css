@@ -1,0 +1,20 @@
+
+.requestStyles{
+  transition: transform .4s;
+}
+.requestStyles:hover{
+  transform: scale(1.02);
+}
+
+@media (min-width:998px) {
+  .requestDetailsCo::after{
+    content: "";
+    background-color: rgba(0, 0, 0, 0.123);
+    width: .09px;
+    height: 100%;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+    top: 0;
+  }
+}

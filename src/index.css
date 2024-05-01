@@ -14,7 +14,22 @@
   background-color: #1F263E !important;
   color: white;
 }
-
+.orangeStyle{
+  background-color: #fef3c7;
+  color: #dd841a;
+}
+.blueStyle{
+  background-color: #dbeafe;
+  color: #2764eb;
+}
+.greenStyle{
+  background-color: #ccfbf1;
+  color: #14988c;
+}
+.dangerStyle{
+  background-color: #fceaee;
+  color: #ea4d6a;
+}
 .text-night{
   color: #1F263E;
 }
