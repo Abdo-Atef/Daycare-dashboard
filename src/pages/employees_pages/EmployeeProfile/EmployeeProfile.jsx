@@ -13,7 +13,7 @@ export default function EmployeeProfile() {
   let dispatch = useDispatch();
   const [ActiveSection, setActiveSection] = useState('myProfile');
   const {employeeToken, employeeProfileData}= useSelector(state => state.employee);
-  
+  // console.log(employeeToken);
   /* -------------------------------- Image Uplaod ------------------------------ */
 
   let fileValidation = Yup.object({

@@ -24,6 +24,10 @@ import About from "./pages/website/About/About";
 import Contact from "./pages/website/Contact/Contact";
 import SpicificRequest from "./pages/employees_pages/spicificRequest/SpicificRequest";
 import Interview from "./pages/employees_pages/interview/Interview";
+import SpRequestToEvaluator from "./pages/employees_pages/EvaluatorRequests/SpRequestToEvaluator";
+import EvaluatedRequests from "./pages/employees_pages/EvaluatorRequests/EvaluatedRequests";
+
+
 function App() {
   const routes = createBrowserRouter([
     { path: "/", element:<Website />},
@@ -46,6 +50,8 @@ function App() {
       { path: "/employees.panal/EmployeeProfile", element:<EmployeeProfile /> },
       { path: "/employees.panal/interview", element:<Interview/> },
       { path: "/employees.panal/EvaluatorRequests", element:<EvaluatorRequests /> },
+      { path: "/employees.panal/EvaluatedRequests", element:<EvaluatedRequests /> },
+      { path: "/employees.panal/EvaluatorRequests/:email", element:<SpRequestToEvaluator /> },
     ],
   } ,
   { path: "/employees.ForgetPassword", element:<ForgetPassword /> },

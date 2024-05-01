@@ -7,7 +7,7 @@ import { BASE_URL } from '../../utils/api';
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllInterview } from '../../redux/interviewer_Slices/interviewerSlice';
-import ReactDatePicker from 'react-datepicker';
+// import ReactDatePicker from 'react-datepicker';
 export default function ModelInterview({show,onHide,interviewData}) {
     const {employeeToken}=useSelector((state)=>state.employee);
     const dispatch=useDispatch()
@@ -49,7 +49,7 @@ export default function ModelInterview({show,onHide,interviewData}) {
             </Modal.Header>
             <Modal.Body>
                 <form className='' onSubmit={formik.handleSubmit}>
-                    <ReactDatePicker
+                    {/* <ReactDatePicker
                         selected={startDate}
                         onChange={(date) => setStartDate(date)}
                         timeInputLabel="Time:"
@@ -59,7 +59,7 @@ export default function ModelInterview({show,onHide,interviewData}) {
                         onYearChange={formik.handleChange}
                         onMonthChange={formik.handleChange}
                         onBlur={formik.handleBlur}
-                    />
+                    /> */}
                     <button className='btn btn-dark mt-3 float-end'>Confirm Time</button>
                 </form>
 

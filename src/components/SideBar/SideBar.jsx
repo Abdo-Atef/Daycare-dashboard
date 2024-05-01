@@ -77,9 +77,15 @@ export default function SideBar() {
         {User?.role == "evaluator" && (
           <>
             <li>
-              <NavLink to={"/employees.panal/EvaluatorRequests"} end>
+              <NavLink to={"/employees.panal/EvaluatorRequests"}>
                 <i className="me-2 fa-solid fa-envelope-open-text"></i>
-                Evaluator Requests
+                Requests
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={"/employees.panal/EvaluatedRequests"}>
+              <i className="me-2 fa-solid fa-envelope-circle-check"></i>
+                Evaluated Requests
               </NavLink>
             </li>
           </>
