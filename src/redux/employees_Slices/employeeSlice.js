@@ -11,7 +11,7 @@ export const getAllemployees = createAsyncThunk('getAllemployees',
       }
       const data = await axios.get(`${BASE_URL}/employees/getAllEmployee?role=${role}`, {headers});
       // console.log(data.data);
-      return data.data
+      return data.data.employees
     } catch (error) {
       console.log(error);
       return error
@@ -71,7 +71,7 @@ export const searchForEmployees = createAsyncThunk('searchForEmployees',
       }
       const data = await axios.get(`${BASE_URL}/employees/SpEmployeeByPhoneByName?name=${name}`, {headers});
       console.log(data.data);
-      return data.data
+      return data.data.employees
     } catch (error) {
       console.log(error);
       return error
@@ -93,6 +93,9 @@ export const employeeSlice = createSlice({
   reducers: {
     setEmployeeToken: (state, action) => {
       state.employeeToken = action.payload;
+    },
+    setEmployees: (state, action) => {
+      state.employees = action.payload;
     },
   },
   extraReducers:(builder)=>{
@@ -132,4 +135,4 @@ export const employeeSlice = createSlice({
 });
 
 export let employeeSliceReducer = employeeSlice.reducer;
-export let { setEmployeeToken } = employeeSlice.actions;
+export let { setEmployeeToken, setEmployees } = employeeSlice.actions;

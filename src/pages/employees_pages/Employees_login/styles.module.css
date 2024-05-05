@@ -1,0 +1,28 @@
+.containeroBg {
+  background: linear-gradient(to right, #004e92, #000428);
+  background: #0f0c29;
+  background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
+  background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+
+}
+
+.containeroBg .ImgSection {
+  background: linear-gradient(90deg, #3F2B96 0%, #A8C0FF 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.426);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.426);
+  border-left: 1px solid rgba(255, 255, 255, 0.426);
+}
+
+.containeroBg .formSection {
+  border-top: 1px solid rgba(255, 255, 255, 0.426);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.426);
+  border-right: 1px solid rgba(255, 255, 255, 0.426);
+}
+
+@media (max-width:600px) {
+  .containeroBg .formSection {
+    border-left: 1px solid rgba(255, 255, 255, 0.426);
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+  }
+}

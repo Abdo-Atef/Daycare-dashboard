@@ -19,7 +19,7 @@ export default function Layout() {
   return (
     <div className="MainContainer">
       <SideBar />
-      <main className={`AppContainer bg-main ${SideBarToggle ? "ps-0" : "ps-250"}`}>
+          <main className={`AppContainer bg-main ${SideBarToggle ? "ps-0" : "ps-250"}`} id="AppContainer">
         <NavBar />
         <Outlet />
       </main>

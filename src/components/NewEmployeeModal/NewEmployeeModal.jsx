@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 export default function NewEmployeeModal({setModalShow, modalShow}) {
     const [apiResult, setapiResult] = useState(false)
     let dispatch = useDispatch();
+    const [Isloading, setIsloading] = useState(false)
 
     let validation = Yup.object({
     name: Yup.string().min(6, "minimum length is 6 characters").max(30, "maximum length is 25 characters").required("Name is Required"),
@@ -20,8 +21,7 @@ export default function NewEmployeeModal({setModalShow, modalShow}) {
   });
 
   async function addNewEm(values, {resetForm}) {
-
-    // console.log(values);
+    setIsloading(true)
     let {payload} = await dispatch(addNewEmployee(values))
     console.log(payload);
     if (payload.error) {
@@ -41,6 +41,7 @@ export default function NewEmployeeModal({setModalShow, modalShow}) {
       setapiResult(false);
       resetForm();
     }
+    setIsloading(false)
   }
 
   const formik = useFormik({
@@ -143,7 +144,11 @@ export default function NewEmployeeModal({setModalShow, modalShow}) {
           </Modal.Body>
           <Modal.Footer>
             <button onClick={()=> setModalShow(false)} className="btn btn-secondary fs-14 px-3">Cancel</button>
+            {!Isloading? 
             <button type="submit" className="btn btn-night fs-14 px-3">Submit</button>
+            :
+            <button className="btn btn-night fs-14 px-3"><i className="fa-solid fa-spinner fa-spin me-1"></i> Submit</button>
+            }
           </Modal.Footer>
         </form>
       </Modal>

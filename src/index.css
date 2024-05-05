@@ -4,15 +4,31 @@
   background-color: #DFE5F9;
 }
 .bg-night{
-  background-color: #1F263E !important;
+  background: #0f0c29;
+  background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
+  background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+}
+.bg-night2{
+  background-color: #302b63 !important;
+}
+.bg-midNight{
+  background-color: #303750;
 }
 .btn-night{
-  background-color: #1F264D !important;
-  color: white;
+  color: white !important;
+  background: #0f0c29;
+  background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
+  background: linear-gradient(to right, #24243e, #302b63, #0f0c29) !important;
+
 }
 .btn-night:hover{
-  background-color: #1F263E !important;
-  color: white;
+  color: white !important;
+}
+.bg-milk{
+  background-color: #FFFFFF;
+}
+.bg-nile{
+  background-color: #50B8E4 !important;
 }
 .orangeStyle{
   background-color: #fef3c7;
@@ -33,12 +49,7 @@
 .text-night{
   color: #1F263E;
 }
-.bg-midNight{
-  background-color: #303750;
-}
-.bg-nile{
-  background-color: #50B8E4 !important;
-}
+
 .text-nile{
   color: #50B8E4;
 }
@@ -48,9 +59,7 @@
 .textGray{
   color: #b1b3bb
 }
-.bg-milk{
-  background-color: #FFFFFF;
-}
+
 .textMilk{
   color: #FFFFFF;
 }
@@ -93,6 +102,7 @@ a{
 .AppContainer {
   transition: .5s;
 }
+
 .websiteNavBar .active{
   color: #d81882 !important;
   position: relative;
