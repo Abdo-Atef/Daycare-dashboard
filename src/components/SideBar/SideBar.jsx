@@ -101,6 +101,12 @@ export default function SideBar() {
                 Interview
               </NavLink>
             </li>
+            <li>
+              <NavLink to={"/employees.panal/resultsInterview"} end>
+                <i className="fa-solid fa-clipboard-check me-2"></i>
+                  Results Interviews
+              </NavLink>
+            </li>
           </>
         )}
 

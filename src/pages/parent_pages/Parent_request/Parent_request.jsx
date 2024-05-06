@@ -121,19 +121,18 @@ export default function ParentRequest() {
                 </div>
               )}
               {
-                request?.resulsts.state == "interviewing"?<div className={`${style.bgInterviewingRequest}  mt-4 p-5 text-center rounded-3`}>
-                  <p className='mt-3 mt-3 fs-5 text-white '>The Day interview: {request.resulsts.dateOfInterviewing !=null?request.resulsts.dateOfInterviewing?.slice(0,10):"soon"}</p>
-                  <p className='mt-3 mt-3 fs-5 text-white '>The Time interview: {request.resulsts.dateOfInterviewing !=null?request.resulsts.dateOfInterviewing?.slice(12,16):"soon"}</p>
-
+                request?.resulsts.state == "interviewing"?<div className={`${style.bgInterviewingRequest}  mt-4 p-5  rounded-3`}>
+                  <p className='mt-3 mt-3 fs-5 text-white text-center'>The Day interview: {request.resulsts.dateOfInterviewing !=null?request.resulsts.dateOfInterviewing?.slice(0,10):"Time will be determined soon"}</p>
+                  <p className='mt-3 mt-3 fs-5 text-white text-center'>The Time interview: {request.resulsts.dateOfInterviewing !=null?request.resulsts.dateOfInterviewing?.slice(12,16):"Day will be determined soon"}</p>
                 </div>:""
               }
               {
                 request?.resulsts.state == "waiting"?<div className={`${style.bgWatingRequest}  mt-4 p-5 text-center rounded-3`}>
-                  <p className='mt-3 mt-3 fs-5 text-white '>The result show soon</p>
+                  <p className='mt-3 mt-3 fs-5 text-white '>{request?.resulsts.condition}</p>
                 </div>:""
               }
               {
-                request?.resulsts.state == "refused"?<div className={`${style.bgRefusedRequest}  mt-4 p-5 text-center rounded-3`}>
+                request?.resulsts.state == "finalRefused"?<div className={`${style.bgRefusedRequest}  mt-4 p-5 text-center rounded-3`}>
                   <p className='mt-3 mt-3 fs-5 text-white '>{request?.resulsts.condition}</p>
                 </div>:""
               }
@@ -206,12 +205,12 @@ function MyData(){
               <button className={`${style.cancel} shadow rounded-3 text-white`} onClick={DeleteRequest}>Cancel Submission</button>
             </div>
         </div>
-            <InputFieldDis label="Parent Name" value={request?.resulsts.parentName} IconType="solid"  IconName="person"/>
-            <InputFieldDis label="Email" value={request?.resulsts.email} IconType="regular" IconName="envelope"/>
-            <InputFieldDis label="Phone" value={request?.resulsts.phone} IconType="solid" IconName="square-phone-flip"/>
-            <InputFieldDis label="Job" value={info?.user.job} IconType="solid" IconName="briefcase"/>
-            <InputFieldDis label="location" value={info?.user.location} IconType="solid" IconName="map"/>
-            <InputFieldDis label="State" value={request?.resulsts.state} IconType="solid" IconName="clock"/>
+            <InputFieldDis className={`${style.search} w-100 ${style.textColor} fw-bold `} label="Parent Name" value={request?.resulsts.parentName} IconType="solid"  IconName="person"/>
+            <InputFieldDis className={`${style.search} w-100 ${style.textColor} fw-bold `} label="Email" value={request?.resulsts.email} IconType="regular" IconName="envelope"/>
+            <InputFieldDis className={`${style.search} w-100 ${style.textColor} fw-bold `} label="Phone" value={request?.resulsts.phone} IconType="solid" IconName="square-phone-flip"/>
+            <InputFieldDis className={`${style.search} w-100 ${style.textColor} fw-bold `} label="Job" value={info?.user.job} IconType="solid" IconName="briefcase"/>
+            <InputFieldDis className={`${style.search} w-100 ${style.textColor} fw-bold `} label="location" value={info?.user.location} IconType="solid" IconName="map"/>
+            <InputFieldDis className={`${style.search} w-100 text-night   fw-bold `} label="State" value={request?.resulsts.state} IconType="solid" IconName="clock"/>
   </>
 }
 function ChangePassword(){
@@ -455,12 +454,12 @@ function ChangeData(){
 }
 
 
-function InputFieldDis({ label, value,IconName,IconType }) {
+function InputFieldDis({ label, value,IconName,IconType,className }) {
   return (
     <>
       <h6 className="mt-2">{label}</h6>
       <div className={`${style.bgCard} mb-2  rounded-2 d-flex  align-items-center shadow `}>
-        <input type="text" className={`${style.search} w-100 ${style.textColor} fw-bold `} value={value} disabled />
+        <input type="text" className={className} value={value} disabled />
         <i className={`fa-${IconType} fa-${IconName}  ${style.textColor} p-3 fs-5`}></i>
       </div>
     </>

@@ -50,7 +50,7 @@ function App() {
       { path: "/employees.panal/employees", element:<Employees /> },
       { path: "/employees.panal/EmployeeProfile", element:<EmployeeProfile /> },
       { path: "/employees.panal/interview", element:<Interview/> },
-      { path: "/employees.panal/interview/resultsInterview", element:<ResultIntervew/> },
+      { path: "/employees.panal/resultsInterview", element:<ResultIntervew/> },
       { path: "/employees.panal/EvaluatorRequests", element:<EvaluatorRequests /> },
       { path: "/employees.panal/EvaluatedRequests", element:<EvaluatedRequests /> },
       { path: "/employees.panal/EvaluatorRequests/:email", element:<SpRequestToEvaluator /> },

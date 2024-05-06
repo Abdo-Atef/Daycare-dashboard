@@ -50,23 +50,27 @@ export default function Parent_login() {
         <div className=' d-flex justify-content-center align-items-center vh-100 '>
             <div className={` bg-white shadow  rounded-3 `}>
                 <div className="row g-4">
-                  <div className="col-lg-5">
+                  <div className="col-lg-6">
                     <div >
-                      <img src={child} alt="child" className={`w-100 rounded-3 `} style={{height:400}}  />
+                        <img src={child} alt="child" className={`w-100 rounded-3 `}   />
                     </div>
                   </div>
-                  <div className=" col-lg-7 my-auto ">
-                      <div className='p-3'>
-                      <div className=''>
+                  <div className=" col-lg-6 my-auto ">
+                      <div className='p-2'>
+                      <div className='p-2'>
                         <h1 className={`${style.heading} ${style.spacing10} `}>Login</h1>
                       </div>
                         {errorMsg?<p className='text-danger'>{errorMsg}</p>:""}
                       <form action="" className='p-3' onSubmit={formik.handleSubmit}>
-                        <input type="email"  className={`${style.input} mt-1 shadow-sm `} placeholder="Enter your email" name="email" value={formik.values.email} onChange={formik.handleChange} onBlur={formik.handleBlur} />
+                        <div className={`${style.input} mt-3 shadow-sm p-0 d-flex align-items-center `}>
+                            <i className='fa-solid fa-envelope p-3 text-night '></i>
+                            <input type="email"  className={`${style.input} mt-1 w-100`} placeholder="Enter your email" name="email" value={formik.values.email} onChange={formik.handleChange} onBlur={formik.handleBlur} />
+                        </div>
                         {formik.errors.email&&formik.touched.email?<p className='text-danger mt-1'>{formik.errors.email}</p>:""}
                         <div className={`${style.input} mt-3 shadow-sm p-0 d-flex align-items-center `}>
+                          <i className='fa-solid fa-lock p-3 text-night'></i>
                           <input type={`${togglePass?"text":"password"}`}  className={`${style.input}`} placeholder="Enter your password" name="password" value={formik.values.password} onChange={formik.handleChange} onBlur={formik.handleBlur}  />
-                          <i onClick={()=>handleToggel()} className={`fa-solid ${togglePass?'fa-eye':'fa-eye-slash'}  px-2 text-night`}></i>
+                          <i onClick={()=>handleToggel()} className={`fa-solid ${togglePass?'fa-eye':'fa-eye-slash'}  p-3 text-night`}></i>
                         </div>
                         {formik.errors.password&&formik.touched.password?<p className='text-danger mt-1'>{formik.errors.password}</p>:""}
                         <div className='d-flex justify-content-center  my-1'>

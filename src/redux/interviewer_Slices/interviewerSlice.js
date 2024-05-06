@@ -7,13 +7,27 @@ export const getAllInterview=createAsyncThunk('getAllInterviewing',async(endPoin
             token:localStorage.getItem('employeeToken')
         }
         const result=await axios.get(`${BASE_URL}/employees/reviewRequest/${endPoint}`,{headers});
-        console.log(result);
         return result.data;
     } catch (error) {
         console.log(error);
         return error
     }
 })
+
+export const resultgetInterview=createAsyncThunk('resutlInterview',async()=>{
+    try {
+        const headers={
+            token:localStorage.getItem('employeeToken')
+        }
+        const result=await axios.get(`${BASE_URL}/employees/reviewRequest/getAllIntreviewedRequestsForThisInterviewer`,{headers})
+        console.log(result.data);
+        return result?.data
+    } catch (error) {
+        console.log(error);
+        return error
+    }
+})
+
 export const SearchInterviwByEmail=createAsyncThunk('searchByEmail',async (email)=>{
     try {
         const headers={
@@ -28,6 +42,7 @@ export const SearchInterviwByEmail=createAsyncThunk('searchByEmail',async (email
 })
 const initialState={
     interviews:null,
+    resultInterviews:null,
 }
 export const interviewerSlice=createSlice({
     name:"interviwer",
@@ -51,6 +66,16 @@ export const interviewerSlice=createSlice({
             state.isLoading=false
         })
         builder.addCase(SearchInterviwByEmail.rejected,(state,action)=>{
+            state.isLoading=false
+        })
+        builder.addCase(resultgetInterview.pending,(state,action)=>{
+            state.isLoading=true
+        })
+        builder.addCase(resultgetInterview.fulfilled,(state,action)=>{
+            state.resultInterviews=action.payload
+            state.isLoading=false        
+        })
+        builder.addCase(resultgetInterview.rejected,(state,action)=>{
             state.isLoading=false
         })
     }
