@@ -1,41 +1,34 @@
-import { Link, NavLink, useNavigate, useNavigation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Styles from "./sideBar.module.css";
 import { useContext, useEffect, useState } from "react";
 import { SideBarContext } from "../../context/SideBar";
 import Accordion from "../Accordion/Accordion";
 import { useSelector } from "react-redux";
 import { jwtDecode } from "jwt-decode";
+import DashLogo from '../../assets/DashLogo1.png'
+
 export default function SideBar() {
-  let Navigation = useNavigate()
   const { SideBarToggle } = useContext(SideBarContext);
   const { employeeToken } = useSelector((state) => state.employee);
   const [User, setUser] = useState(null);
 
-  const routeChecking = (userData) =>{
-    if (userData?.role == "admin") {
-      Navigation('/employees.panal')
-    }
-    if (userData?.role == "evaluator") {
-      Navigation('/employees.panal/EvaluatorRequests')
-    }
-    if (userData?.role == "interviewer") {
-      Navigation('/employees.panal/interview')
-    }
-  }
-  
   useEffect(() => {
     const UserData = jwtDecode(employeeToken);
-    routeChecking(UserData);
     setUser(UserData);
-  }, []);
+  }, [employeeToken]);
 
   return (
     <>
       <ul
-        className={`${Styles.sideBar} sideBar bg-night ${
+        className={`${Styles.sideBar} sideBar bg-night  ${
           SideBarToggle ? "-start-250" : "start-0"
         }`}
       >
+        <li className={`${Styles.logoSection}`}>
+          <figure className="mb-2 position-relative">
+            <img src={DashLogo} className="w-100" style={{maxWidth:'200px'}} alt="Dashboard Logo" />
+          </figure>
+        </li>
         {/* ------------------------------------------ Admin Pages ----------------------------------------------- */}
         {User?.role == "admin" && (
           <>
@@ -110,11 +103,15 @@ export default function SideBar() {
           </>
         )}
 
-        <li>
+        <li className=" ">
           <NavLink to={"/employees.panal/EmployeeProfile"} end>
             <i className="me-2 fa-solid fa-gear"></i>
             Settings
           </NavLink>
+        </li>
+        <li className="position-absolute bottom-0 w-100 mb-3 text-center">
+          <p className="text-white fs-14 mb-0">BFCAI Team</p>
+          <span className="text-white fs-12">All Rights Reserved @2024</span>
         </li>
 
         {/* <li>

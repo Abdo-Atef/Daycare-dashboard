@@ -21,7 +21,8 @@ export default function EmployeeRow_Table({employee}) {
   return (
     <tr>
       <td className='ps-4'>
-        <img src={employee.profilePicture.secure_url.replace(/.*https:\/\//, 'https://')} alt="user image" className='rounded-full me-3 border' width={30} height={30} />{employee.name}
+        <img src={employee.profilePicture.secure_url.replace(/.*https:\/\//, 'https://')} alt="user image" className='rounded-full me-3 border' width={30} height={30} />
+        <span className='text-capitalize'>{employee.name}</span>
       </td>
       <td>{employee.email}</td>
       <td className='text-capitalize'><i className="fa-solid fa-location-dot me-2 textGray"></i>{employee.address}</td>

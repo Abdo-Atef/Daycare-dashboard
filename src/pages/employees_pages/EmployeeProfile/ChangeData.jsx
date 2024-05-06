@@ -9,8 +9,10 @@ export default function ChangeData({UserId}) {
   const { employeeToken } = useSelector((state) => state.employee);
   const [Error, setError] = useState(false);
   const [Success, setSuccess] = useState(false);
+  const [Isloading, setIsloading] = useState(false)
 
   async function updateSubmit(values, { resetForm }) {
+    setIsloading(true)
     let headers = {
       token: employeeToken,
     };
@@ -29,6 +31,7 @@ export default function ChangeData({UserId}) {
         setError(data.data.error);
         setSuccess(false)
       }
+      setIsloading(false)
   }
 
   let validation = Yup.object({
@@ -96,12 +99,14 @@ export default function ChangeData({UserId}) {
             The Data is updated successfully
           </p>
         )}
-        <button
-          type="submit"
-          className={`btn btn-night fw-semibold w-100 mt-4`}
-        >
-          Update The Data
-        </button>
+        {!Isloading ?
+          <button type="submit" className={`btn btn-night fw-semibold py-2 w-100 mt-4`} >Update The Data</button>
+          :
+          <button className={`btn btn-night fw-semibold py-2 w-100 mt-4`} >
+            <i className="fa-solid fa-spinner fa-spin me-1"></i>
+            Update The Data
+          </button>
+        }
       </form>
     </div>
   );

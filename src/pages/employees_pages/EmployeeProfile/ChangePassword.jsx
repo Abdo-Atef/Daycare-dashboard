@@ -8,12 +8,13 @@ import axios from "axios";
 
 export default function ChangePassword() {
   const { employeeToken } = useSelector((state) => state.employee);
-
+  const [Isloading, setIsloading] = useState(false)
   const [Error, setError] = useState(false);
   const [Success, setSuccess] = useState(false);
   let dispatch = useDispatch();
 
   async function updateSubmit(values, {resetForm}) {
+    setIsloading(true)
     let headers = {
       token: employeeToken,
     }
@@ -36,6 +37,7 @@ export default function ChangePassword() {
         setError(data.data.error);
         setSuccess(false)
       }
+      setIsloading(false)
     }
 
   let validation = Yup.object({
@@ -117,12 +119,14 @@ export default function ChangePassword() {
         </div>
         {Error && <p className="text-danger text-center my-3 ">{Error}</p>}
         {Success && <p className="text-success text-center my-3 ">The password is updated successfully, please Login again</p>}
-        <button
-          type="submit"
-          className={`btn btn-night fw-semibold w-100 mt-4`}
-        >
-          Update The Password
-        </button>
+        {!Isloading ?
+          <button type="submit" className={`btn btn-night fw-semibold py-2 w-100 mt-4`} >Update The Data</button>
+          :
+          <button className={`btn btn-night fw-semibold py-2 w-100 mt-4`} >
+            <i className="fa-solid fa-spinner fa-spin me-1"></i>
+            Update The Password
+          </button>
+        }
       </form>
     </div>
   );

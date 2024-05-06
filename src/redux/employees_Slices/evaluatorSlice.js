@@ -11,7 +11,7 @@ export const getAllRequestsToEvaluator = createAsyncThunk('getAllRequestsToEvalu
       }
       const data = await axios.get(`${BASE_URL}/employees/reviewRequest/getRequestsToEvaluator`, {headers});
       // console.log(data.data);
-      return data.data
+      return data.data.requests
     } catch (error) {
       console.log(error);
       return error
@@ -27,7 +27,7 @@ export const RequestsThatEvaluatorReview = createAsyncThunk('RequestsThatEvaluat
       }
       const data = await axios.get(`${BASE_URL}/employees/reviewRequest/getRequestsRevBySpEval`, {headers});
       // console.log(data.data);
-      return data.data
+      return data.data.requests
     } catch (error) {
       console.log(error);
       return error
@@ -44,6 +44,14 @@ const initialState = {
 export const evaluatorSlice = createSlice({
   name: "evaluator",
   initialState,
+  reducers:{
+    setEvaluatedRequests : (state, action) => {
+      state.evaluatorRequests = action.payload;
+    },
+    setEvaluatorRequests : (state, action) => {
+      state.allRequests = action.payload;
+    },
+  },
   extraReducers:(builder)=>{
     builder.addCase(getAllRequestsToEvaluator.fulfilled, (state, action)=>{
       state.allRequests = action.payload;
@@ -70,3 +78,4 @@ export const evaluatorSlice = createSlice({
 });
 
 export let evaluatorSliceReducer = evaluatorSlice.reducer;
+export let { setEvaluatedRequests, setEvaluatorRequests } = evaluatorSlice.actions;
