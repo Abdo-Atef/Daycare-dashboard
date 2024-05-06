@@ -1,0 +1,19 @@
+
+@media screen and (max-width: 768px) {
+    .widthCard{
+        width:400px
+    }
+}
+@media screen and (max-width: 576px) {
+    .widthCard{
+        width:300px;
+        
+    }
+    .widthInner{
+        width: 300px !important;
+    }
+    .Fsize{
+        font-size: 13px !important;
+        font-weight: 600;
+    }
+}

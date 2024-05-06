@@ -142,36 +142,68 @@ export default function Registration() {
                   <div className="col-lg-5">
                       
                       <form action="" className='p-3' onSubmit={formik.handleSubmit}>
-                        <input type="text"  className={`${style.input} shadow-sm`} placeholder="parent name" name="parentName" value={formik.values.parentName} onBlur={formik.handleBlur} onChange={formik.handleChange} />
+                        <div className={`${style.input} mt-3 shadow-sm p-0 d-flex align-items-center `}>
+                            <i className='fa-solid fa-user p-3 text-night '></i>
+                            <input type="text"  className={`${style.input}`} placeholder="parent name" name="parentName" value={formik.values.parentName} onBlur={formik.handleBlur} onChange={formik.handleChange} />
+                        </div>
                         {formik.errors.parentName&&formik.touched.parentName?<p className='text-danger mt-1'>{formik.errors.parentName}</p>:""}
-                        <input type="email" className={`${style.input} mt-3 shadow-sm`} placeholder="email"  name='email' value={formik.values.email} onBlur={formik.handleBlur} onChange={formik.handleChange}  />
+                        <div className={`${style.input} mt-3 shadow-sm p-0 d-flex align-items-center `}>
+                          <i className='fa-solid fa-envelope p-3 text-night '></i>
+                          <input type="email" className={`${style.input}`} placeholder="Email"  name='email' value={formik.values.email} onBlur={formik.handleBlur} onChange={formik.handleChange}  />
+                        </div>
                         {formik.errors.email&&formik.touched.email?<p className='text-danger mt-1'>{formik.errors.email}</p>:""}
                         <div className={`${style.input} mt-3 p-0 shadow-sm d-flex  align-items-center   `}>
+                            <i className='fa-solid fa-lock p-3 text-night '></i>
                             <input type={`${togglePass?"text":"password"}`}  className={`${style.input}`} placeholder="password" name="password" value={formik.values.password} onBlur={formik.handleBlur} onChange={formik.handleChange}  />
                             <i onClick={()=>handleToggle()} className={`fa-solid ${togglePass?'fa-eye':'fa-eye-slash'}  px-2 text-night`}></i>
                         </div>
                         {formik.errors.password&&formik.touched.password?<p className='text-danger mt-1'>{formik.errors.password}</p>:""}
                         
                         <div className={`${style.input} mt-3 p-0 shadow-sm d-flex  align-items-center   `}>
+                            <i className='fa-solid fa-lock p-3 text-night '></i>
                             <input type={`${togglePass2?"text":"password"}`} id='rePassword' className={`${style.input}`} placeholder="confirm password" name="rePassword" value={formik.values.rePassword} onBlur={formik.handleBlur} onChange={formik.handleChange}  />
                             <i onClick={()=>handleToggle2()} className={`fa-solid ${togglePass2?'fa-eye':'fa-eye-slash'}  px-2 text-night`}></i>
                         </div>
                         {formik.errors.rePassword&&formik.touched.rePassword?<p className='text-danger mt-1'>{formik.errors.rePassword}</p>:""}
-                        <input type="text"  className={`${style.input} mt-3 shadow-sm`} placeholder="phone" name="phone" value={formik.values.phone} onBlur={formik.handleBlur} onChange={formik.handleChange}  />
+                        <div className={`${style.input} mt-3 shadow-sm p-0 d-flex align-items-center `}>
+                          <i className='fa-solid fa-phone-flip  p-3 text-night  '></i>
+                          <input type="text"  className={`${style.input}`} placeholder="Phone" name="phone" value={formik.values.phone} onBlur={formik.handleBlur} onChange={formik.handleChange}  />
+                        </div>
                         {formik.errors.phone&&formik.touched.phone?<p className='text-danger mt-1'>{formik.errors.phone}</p>:""}
-                        <input type="text"  className={`${style.input} mt-3 shadow-sm`} placeholder="job" name="job" value={formik.values.job} onBlur={formik.handleBlur} onChange={formik.handleChange} />
+                        <div className={`${style.input} mt-3 shadow-sm p-0 d-flex align-items-center `}>
+                            <i className='fa-solid fa-briefcase p-3 text-night '></i>
+                            <input type="text"  className={`${style.input}`} placeholder="Job" name="job" value={formik.values.job} onBlur={formik.handleBlur} onChange={formik.handleChange} />
+                        </div>
                         {formik.errors.job&&formik.touched.job?<p className='text-danger mt-1'>{formik.errors.job}</p>:""}
-                        <input type="text"  className={`${style.input} mt-3 shadow-sm`} placeholder="child name"  name="childName" value={formik.values.childName} onBlur={formik.handleBlur} onChange={formik.handleChange}/>
+                        <div className={`${style.input} mt-3 shadow-sm p-0 d-flex align-items-center `}>
+                          <i className='fa-solid fa-child p-3 text-night '></i>
+                          <input type="text"  className={`${style.input}`} placeholder="child name"  name="childName" value={formik.values.childName} onBlur={formik.handleBlur} onChange={formik.handleChange}/>
+                        </div>
                         {formik.errors.childName&&formik.touched.childName?<p className='text-danger mt-1'>{formik.errors.childName}</p>:""}
-                        <input type="text"  className={`${style.input} mt-3 shadow-sm`} placeholder="Parent National Id" name="parentNationalId" value={formik.values.parentNationalId} onBlur={formik.handleBlur} onChange={formik.handleChange}  />
+                        <div className={`${style.input} mt-3 shadow-sm p-0 d-flex align-items-center `}>
+                            <i className='fa-solid fa-id-card p-3 text-night '></i>
+                            <input type="text"  className={`${style.input}`} placeholder="Parent National Id" name="parentNationalId" value={formik.values.parentNationalId} onBlur={formik.handleBlur} onChange={formik.handleChange}  />
+                        </div>
                         {formik.errors.parentNationalId&&formik.touched.parentNationalId?<p className='text-danger mt-1'>{formik.errors.parentNationalId}</p>:""}
-                        <input type="date"  className={`${style.input} mt-3 shadow-sm`} placeholder='Birth Date' name="birthDate" value={formik.values.birthDate} onBlur={formik.handleBlur} onChange={formik.handleChange} />
+                        <div className={`${style.input} mt-3 shadow-sm p-0 d-flex align-items-center `}>
+                            <i className='fa-solid fa-calendar p-3 text-night '></i>
+                            <input type="date"  className={`${style.input} `} placeholder='Birth Date' name="birthDate" value={formik.values.birthDate} onBlur={formik.handleBlur} onChange={formik.handleChange} />
+                        </div>
                         {formik.errors.birthDate&&formik.touched.birthDate?<p className='text-danger mt-1'>{formik.errors.birthDate}</p>:""}
-                        <input type="text" className={`${style.input} mt-3 shadow-sm`} placeholder="Child National Id" name="childNationalId" value={formik.values.childNationalId} onBlur={formik.handleBlur} onChange={formik.handleChange} />
+                        <div className={`${style.input} mt-3 shadow-sm p-0 d-flex align-items-center `}>
+                            <i className='fa-solid fa-id-card p-3 text-night '></i>
+                            <input type="text" className={`${style.input}`} placeholder="Child National Id" name="childNationalId" value={formik.values.childNationalId} onBlur={formik.handleBlur} onChange={formik.handleChange} />
+                        </div>
                         {formik.errors.childNationalId&&formik.touched.childNationalId?<p className='text-danger mt-1'>{formik.errors.childNationalId}</p>:""}
-                        <input type="text"  className={`${style.input} mt-3 shadow-sm`}placeholder='location' name="location" value={formik.values.location} onBlur={formik.handleBlur} onChange={formik.handleChange}/>
+                        <div className={`${style.input} mt-3 shadow-sm p-0 d-flex align-items-center `}>
+                          <i className='fa-solid fa-location-dot p-3 text-night '></i>
+                          <input type="text"  className={`${style.input}`} placeholder='Location' name="location" value={formik.values.location} onBlur={formik.handleBlur} onChange={formik.handleChange}/>
+                        </div>
                         {formik.errors.location&&formik.touched.location?<p className='text-danger mt-3'>{formik.errors.location}</p>:""}
-                        <input type="text"  className={`${style.input} mt-3 shadow-sm`} list="region-list" placeholder='region' name="region" value={formik.values.region} onBlur={formik.handleBlur} onChange={formik.handleChange}/>
+                        <div className={`${style.input} mt-3 shadow-sm p-0 d-flex align-items-center `}>
+                            <i className='fa-solid fa-city p-3 text-night '></i>
+                            <input type="text"  className={`${style.input}`} list="region-list" placeholder='Region' name="region" value={formik.values.region} onBlur={formik.handleBlur} onChange={formik.handleChange}/>
+                        </div>
                         {formik.errors.region&&formik.touched.region?<p className='text-danger mt-3'>{formik.errors.region}</p>:""}
                         <datalist id='region-list'>
                           {RegionList.map((region)=><option value={region}>{region}</option>)}

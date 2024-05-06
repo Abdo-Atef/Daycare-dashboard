@@ -29,7 +29,9 @@ export default function ModelConditionInterview({show,onHide,interviewData}) {
             state:'',
             condition:''
         },
-        onSubmit:confirmResult,
+        onSubmit:(values)=>{
+            confirmResult(values.state === "finalRefused" ? values : { state: values.state });
+        },
         validationSchema,
     })
     function ToggleInput(){
@@ -61,7 +63,7 @@ export default function ModelConditionInterview({show,onHide,interviewData}) {
             </Modal.Header>
             <Modal.Body  style={{backgroundColor:"#1b1b1d"}}>
                 <form action="" className='text-white' onSubmit={formik.handleSubmit}>
-                        <label htmlFor="result" className='fs-5 mb-2'>result</label>
+                        <label htmlFor="result" className='fs-5 mb-2'>state</label>
                         <select  id="result" name='state' value={formik.values.state} onBlur={formik.handleBlur} onChange={formik.handleChange} className='w-100 border-0 text-white rounded-2' style={{outline:0,padding:10,backgroundColor:'hsla(227, 25%, 25%,.35)'}}>
                             <option value="accepted" className='p-3' style={{outline:0,padding:10,backgroundColor:'hsla(227, 25%, 25%,.35)'}}>accepted</option>
                             <option value="finalRefused" style={{outline:0,padding:10,backgroundColor:'hsla(227, 25%, 25%,.35)'}}>refused</option>
@@ -69,7 +71,7 @@ export default function ModelConditionInterview({show,onHide,interviewData}) {
                         {formik.errors.state?<p className='text-danger mt-1'>{formik.errors.state}</p>:""}
                         <div  id='state'>
                             <label htmlFor="reason" className='fs-5 my-2'>reason</label>
-                            <input  type="text" name="condition" value={formik.values.condition} onBlur={formik.handleBlur} onChange={formik.handleChange} id='reason' placeholder='result' className='w-100 border-0 text-white rounded-2' style={{outline:0,padding:10,backgroundColor:'hsla(227, 25%, 25%,.35)'}} />
+                            <input  type="text" name="condition" value={formik.values.condition} onBlur={formik.handleBlur} onChange={formik.handleChange} id='reason' placeholder='reason' className='w-100 border-0 text-white rounded-2' style={{outline:0,padding:10,backgroundColor:'hsla(227, 25%, 25%,.35)'}} />
                         </div>
                         {formik.errors.condition&&formik.touched.condition?<p className='text-danger mt-1'>{formik.errors.condition}</p>:""}
                         <button className='btn float-end text-white mt-2 px-5' style={{backgroundColor:'hsla(178, 79%, 39%,.45)'}}>Confirm</button>
