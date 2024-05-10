@@ -15,7 +15,7 @@ export default function Requests() {
     getRequests()
   },[])
   return (
-    <div className='vh-100'>
+    <div className='min-vh-100'>
         <div className="container">
             <div className='p-4'>
               {userRequest?.requests!=0? <div className="row g-4">

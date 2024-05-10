@@ -1,11 +1,5 @@
-.dropDownStyle button {
-  border: 0;
-}
-.dropDownStyle button::after {
+.dropDownStyle::after {
   display: none !important;
-}
-.dropDownStyle div {
-  padding: 2px 0;
 }
 
 @media (min-width:600px) {

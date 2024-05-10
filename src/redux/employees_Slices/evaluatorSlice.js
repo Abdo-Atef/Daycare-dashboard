@@ -26,7 +26,7 @@ export const RequestsThatEvaluatorReview = createAsyncThunk('RequestsThatEvaluat
         token : localStorage.getItem('employeeToken')
       }
       const data = await axios.get(`${BASE_URL}/employees/reviewRequest/getRequestsRevBySpEval`, {headers});
-      // console.log(data.data);
+      console.log(data.data);
       return data.data.requests
     } catch (error) {
       console.log(error);

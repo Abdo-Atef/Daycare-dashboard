@@ -39,7 +39,7 @@ export default function SideBar() {
               </NavLink>
             </li>
             <li>
-              <NavLink to={"/employees.panal/groups"} end>
+              <NavLink to={"/employees.panal/groups"} >
                 <i className="me-2 fa-solid fa-users-viewfinder"></i>
                 Groups
               </NavLink>
@@ -48,6 +48,12 @@ export default function SideBar() {
               <NavLink to={"/employees.panal/requests"} end>
                 <i className="me-2 fa-solid fa-envelope-open-text"></i>
                 Requests
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={"/employees.panal/children"} end>
+                <i className="me-2 fa-solid fa-children"></i>
+                Children
               </NavLink>
             </li>
             <li>

@@ -27,6 +27,8 @@ import SpRequestToEvaluator from "./pages/employees_pages/EvaluatorRequests/SpRe
 import EvaluatedRequests from "./pages/employees_pages/EvaluatorRequests/EvaluatedRequests";
 import { useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
+import SpecificGroup from "./pages/employees_pages/Groups/SpecificGroup";
+import Children from "./pages/employees_pages/Children/Children";
 
 function App() {
 
@@ -70,10 +72,26 @@ function App() {
           ),
         },
         {
+          path: "/employees.panal/groups/:id",
+          element: (
+            <AdminProtectedRoute>
+              <SpecificGroup role = {Role} />
+            </AdminProtectedRoute>
+          ),
+        },
+        {
           path: "/employees.panal/requests",
           element: (
             <AdminProtectedRoute>
               <Requests role = {Role} />
+            </AdminProtectedRoute>
+          ),
+        },
+        {
+          path: "/employees.panal/children",
+          element: (
+            <AdminProtectedRoute>
+              <Children role = {Role} />
             </AdminProtectedRoute>
           ),
         },
@@ -114,7 +132,7 @@ function App() {
           ),
         },
         {
-          path: "/employees.panal/interview/resultsInterview",
+          path: "/employees.panal/resultsInterview",
           element: (
             <InterProtectedRoute>
               <ResultIntervew role = {Role} />

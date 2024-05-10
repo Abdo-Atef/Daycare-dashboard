@@ -57,15 +57,6 @@
   opacity: 0.4;
 }
 
-.requestStyles>div:hover {
-  /* background: hsla(231, 100%, 99%, 1);
-  background: linear-gradient(90deg, hsla(220, 100%, 90%, 1) 1%, hsla(220, 100%, 90%, 1) 100%) !important;
-
-  background: -moz-linear-gradient(90deg, hsla(220, 100%, 90%, 1) 1%, hsla(220, 100%, 90%, 1) 100%);
-
-  background: -webkit-linear-gradient(90deg, hsla(220, 100%, 90%, 1) 1%, hsla(220, 100%, 90%, 1) 100%); */
-}
-
 .requestStyles>div:hover {}
 
 @media (min-width:998px) {

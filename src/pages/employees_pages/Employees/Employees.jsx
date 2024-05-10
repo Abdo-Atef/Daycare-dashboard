@@ -16,6 +16,9 @@ export default function Employees() {
   }
   const handleSearch = (term) => {
     term.length > 0 ? dispatch(searchForEmployees(term)) : dispatch(getAllemployees());
+    if (totalPages <= currentPage) {
+      setCurrentPage(1)
+    }
   }
 
   let dispatch = useDispatch();
@@ -57,7 +60,7 @@ export default function Employees() {
     /* ---------------------------------------------------------------- */
   
   return (
-    <div className='vh-100 container mx-auto py-3 px-lg-4'>
+    <div className='min-vh-100 container mx-auto py-3 px-lg-4 pb-5'>
       <h1 className='h4'>Employees Management</h1>
       <div className='justify-content-between align-items-center mt-4 pt-2 row row-cols-2'>
         <div className='d-flex flex-lg-row flex-column gap-3 align-items-lg-center'>

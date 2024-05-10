@@ -38,11 +38,13 @@ export default function SpRequestToEvaluator() {
     }
   }
   
-
+  
+  const [Isloading, setIsloading] = useState(false)
   const [SubmitResult, setSubmitResult] = useState(null)
   const navigate = useNavigate();
 
   const reviewSpRequestByEvaluator = async(values)=>{
+        setIsloading(true)
         const headers = {
           token : localStorage.getItem('employeeToken')
         }
@@ -53,11 +55,15 @@ export default function SpRequestToEvaluator() {
         }
         else if(data.data.sucess){
           setSubmitResult(false)
-          toast.success(data.data.messsage)
+          toast.success(data.data.messsage, {
+            position:'bottom-right',
+            className:'text-capitalize'
+          })
           setTimeout(() => {
             navigate('/employees.panal/EvaluatorRequests')
           }, 2000);
         }
+        setIsloading(false)
     } 
   
   function handleSubmit() {
@@ -84,7 +90,7 @@ export default function SpRequestToEvaluator() {
   
   return (
     <div className='container py-3'>
-      <div className='bg-white p-4 rounded-1 '>
+      <div className='bg-white p-4 rounded-1'>
         <div>
           <Link to={'/employees.panal/EvaluatorRequests'} className='fw-semibold text-secondary fs-14'>Requests</Link>
           <i className='fa-solid fa-angle-right text-secondary mx-2 fs-13'></i>
@@ -177,7 +183,11 @@ export default function SpRequestToEvaluator() {
               </div>}
               
               {SubmitResult && <p className='text-danger text-center mt-3'>{SubmitResult}</p>}
-              <button onClick={handleSubmit} className='btn btn-night w-100 mt-4'>Submit</button>
+              {Isloading? 
+                <button className='btn btn-night w-100 mt-4'><i className='fa-solid fa-spinner fa-spin me-1'></i> Submit</button>
+                : 
+                <button onClick={handleSubmit} className='btn btn-night w-100 mt-4'> Submit</button>
+              }
           </div>
         </div>
       </div>

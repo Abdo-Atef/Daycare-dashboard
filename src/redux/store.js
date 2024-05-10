@@ -4,6 +4,7 @@ import { parentSliceReducer } from './parents_Slices/parent_slices'
 import { InterviewerSliceReducer} from './interviewer_Slices/interviewerSlice'
 import { evaluatorSliceReducer } from './employees_Slices/evaluatorSlice'
 import { groupSliceReducer } from './employees_Slices/groupSlice'
+import { childrenSliceReducer } from './employees_Slices/childrenSlice'
 
 export const store = configureStore({
   reducer: {
@@ -11,6 +12,7 @@ export const store = configureStore({
     parent:parentSliceReducer,
     interviewer:InterviewerSliceReducer,
     evaluator:evaluatorSliceReducer,
-    group:groupSliceReducer
+    group:groupSliceReducer,
+    children:childrenSliceReducer,
   },
 })
