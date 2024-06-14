@@ -20,22 +20,7 @@ export default function Registration() {
     setTogglePass2(!togglePass2)
   }
   const navigate=useNavigate();
-  const RegionList=[
-    "Abbassiya", "Agouza", "Ain Shams", "Bab al-Louq", "Bulaq", "Dar El Salam",
-    "Darb al-Ahmar", "Dokki", "Downtown Cairo Wust El Balad", "El Agouzah", 
-    "El Basatin", "El Basateen", "El Darassa", "El Gamaliya", "El Giza", 
-    "El Khalifa", "El Katameya", "El Khalifa", "El Khanka", "El Maasara", 
-    "El Marg", "El Matareya", "El Manyal", "El Masara", "El Matariya", 
-    "El Mohandessin", "El Mosheer", "El Moski", "El Nasr City", "El Nozha", 
-    "El Omraneya", "El Rehab City", "El Sahel", "El Salam City", "El Sayeda Zainab", 
-    "El Sharabeya", "El Shorouk City", "El Tebeen", "El Waily", "El Waili", 
-    "El Warraq", "El Zeitoun", "Garden City", "Giza Square", "Hadaiek Helwan", 
-    "Hadayek El Ahram", "Hadayek El Kobba", "Hadayek El Maadi", "Hadayek El Kobba", 
-    "Hadayek El Maadi", "Hadayek Helwan", "Heliopolis", "Helwan", "Helwan City", 
-    "Imbaba", "Maadi", "Manial", "Mokattam", "Nasr City", "New Cairo", 
-    "Rod El-Farag", "Sayeda Zeinab", "Shorouk City", "Shubra", "Wust El Balad", 
-    "Zamalek"
-  ]
+  const RegionList=["Zamalek", "Maadi", "Mohandessin", "Garden City", "Dokki", "Heliopolis", "Nasr City", "Downtown Cairo Wust El Balad", "Agouza", "Manial", "El Rehab City", "New Cairo", "Ain Shams", "Shubra", "Helwan", "Sayeda Zeinab", "Abbassiya", "Rod El-Farag", "Shorouk City", "Darb al-Ahmar", "Bab al-Louq", "Giza Square", "Giza Corniche", "Imbaba", "El Marg", "El Basatin", "El Matareya", "El Zaher", "El Tebeen", "El Salam City", "El Sayeda Zainab", "El Khalifa", "El Nozha", "El Masara", "El Sahel", "El Khanka", "El Manyal", "El Darassa", "El Sahel", "El Basateen", "El Waily", "El Waili", "El Tebeen", "El Kholafaa El Rashedeen", "El Mosheer", "El Katameya", "El Qahira", "El Maasara", "Bulaq", "Dar El Salam", "El Omraneya", "El Agouzah", "El Matariya", "El Warraq", "El Zawya El Hamra", "Hadayek El Ahram", "Hadayek Helwan", "Hadayek El Kobba", "Hadayek El Maadi", "Helwan City", "Mokattam", "El Sharabeya", "El Marg", "El Zeitoun", "El Khalifa", "El Gamaliya", "El Moski", "El Khalifa", "El Sawah", "El Darb El Ahmar"]
   async function signup(value) {
     const formData = new FormData();
     for (const key in value) {

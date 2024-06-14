@@ -27,17 +27,20 @@ export default function ModelConditionInterview({show,onHide,interviewData}) {
     const formik=useFormik({
         initialValues:{
             state:'',
-            condition:''
+            condition:'',
+            busService:null
         },
         onSubmit:(values)=>{
-            confirmResult(values.state === "finalRefused" ? values : { state: values.state });
+            confirmResult(values.state === "finalRefused" ? {state:values.state,condition:values.condition} : { state: values.state,busService:values.busService });
         },
         validationSchema,
     })
     function ToggleInput(){
         const state=document.getElementById('state');
+        const bus=document.getElementById('bus');
         if(formik.values.state == "accepted"){
             state.classList.add('d-none')
+            bus.classList.remove('d-none')
         }else{
             state.classList.remove('d-none')
             state.classList.add('d-block')
@@ -63,15 +66,22 @@ export default function ModelConditionInterview({show,onHide,interviewData}) {
             </Modal.Header>
             <Modal.Body  style={{backgroundColor:"#1b1b1d"}}>
                 <form action="" className='text-white' onSubmit={formik.handleSubmit}>
-                        <label htmlFor="result" className='fs-5 mb-2'>state</label>
+                        <label htmlFor="result" className='fs-5 mb-2'>State</label>
                         <select  id="result" name='state' value={formik.values.state} onBlur={formik.handleBlur} onChange={formik.handleChange} className='w-100 border-0 text-white rounded-2' style={{outline:0,padding:10,backgroundColor:'hsla(227, 25%, 25%,.35)'}}>
                             <option value="accepted" className='p-3' style={{outline:0,padding:10,backgroundColor:'hsla(227, 25%, 25%,.35)'}}>accepted</option>
                             <option value="finalRefused" style={{outline:0,padding:10,backgroundColor:'hsla(227, 25%, 25%,.35)'}}>refused</option>
                         </select>
                         {formik.errors.state?<p className='text-danger mt-1'>{formik.errors.state}</p>:""}
-                        <div  id='state'>
-                            <label htmlFor="reason" className='fs-5 my-2'>reason</label>
+                        <div  id='state' >
+                            <label htmlFor="reason" className='fs-5 my-2'>Reason</label>
                             <input  type="text" name="condition" value={formik.values.condition} onBlur={formik.handleBlur} onChange={formik.handleChange} id='reason' placeholder='reason' className='w-100 border-0 text-white rounded-2' style={{outline:0,padding:10,backgroundColor:'hsla(227, 25%, 25%,.35)'}} />
+                        </div>
+                        <div id='bus' className='d-none'>
+                            <label htmlFor="busService"  className='fs-5 my-2'>Subscribe to the bus service</label>
+                            <select  id="busService" name='busService' value={formik.values.busService} onBlur={formik.handleBlur} onChange={formik.handleChange} className='w-100 border-0 text-white rounded-2' style={{outline:0,padding:10,backgroundColor:'hsla(227, 25%, 25%,.35)'}}>
+                                <option value="true" className='p-3' style={{outline:0,padding:10,backgroundColor:'hsla(227, 25%, 25%,.35)'}}>Yes</option>
+                                <option value="false" style={{outline:0,padding:10,backgroundColor:'hsla(227, 25%, 25%,.35)'}}>No</option>
+                            </select>
                         </div>
                         {formik.errors.condition&&formik.touched.condition?<p className='text-danger mt-1'>{formik.errors.condition}</p>:""}
                         <button className='btn float-end text-white mt-2 px-5' style={{backgroundColor:'hsla(178, 79%, 39%,.45)'}}>Confirm</button>

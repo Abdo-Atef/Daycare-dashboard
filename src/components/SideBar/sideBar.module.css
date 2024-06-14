@@ -16,7 +16,7 @@
 .logoSection figure{
   margin: 0 auto;
   border-radius: 20px;
-  box-shadow: 0 0.5rem 1rem rgba(31, 73, 172, 0.393);
+  box-shadow: 0 0.2rem 1rem rgba(31, 73, 172, 0.393);
 }
 .sideBar li a{
   display: block;

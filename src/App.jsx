@@ -27,6 +27,8 @@ import SpRequestToEvaluator from "./pages/employees_pages/EvaluatorRequests/SpRe
 import EvaluatedRequests from "./pages/employees_pages/EvaluatorRequests/EvaluatedRequests";
 import { useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
+import SpicificBus from "./pages/employees_pages/Busses/SpicificBus/SpicificBus";
+import GroupBusSupervisor from "./pages/employees_pages/Busses/GroupBusSupervisor/GroupBusSupervisor";
 
 function App() {
 
@@ -94,6 +96,22 @@ function App() {
           ),
         },
         {
+          path: "/employees.panal/busses/SpBus/:id",
+          element: (
+            <AdminProtectedRoute>
+              <SpicificBus role = {Role} />
+            </AdminProtectedRoute>
+          ),
+        },
+        {
+          path: "/employees.panal/groupBusSupervisor",
+          element: (
+            <BusSupervisorProtectedRoute>
+              <GroupBusSupervisor role = {Role} />
+            </BusSupervisorProtectedRoute>
+          ),
+        },
+        {
           path: "/employees.panal/employees",
           element: (
             <AdminProtectedRoute>
@@ -114,7 +132,7 @@ function App() {
           ),
         },
         {
-          path: "/employees.panal/interview/resultsInterview",
+          path: "/employees.panal/resultsInterview",
           element: (
             <InterProtectedRoute>
               <ResultIntervew role = {Role} />
@@ -170,6 +188,19 @@ function AdminProtectedRoute({ children }) {
     return <Navigate to={"/employees.panal/EvaluatorRequests"} />;
   } else if (children.props.role == "interviewer") {
     return <Navigate to={"/employees.panal/interview"} />;
+  }else if(children.props.role == "busSupervisor"){
+    return <Navigate to={`/employees.panal/groupBusSupervisor`}/>
+  }
+}
+function BusSupervisorProtectedRoute({ children }) {
+  if (children.props.role == "busSupervisor") {
+    return children;
+  } else if (children.props.role == "evaluator") {
+    return <Navigate to={"/employees.panal/EvaluatorRequests"} />;
+  } else if (children.props.role == "interviewer") {
+    return <Navigate to={"/employees.panal/interview"} />;
+  }else if (children.props.role == "admin") {
+    return <Navigate to={"/employees.panal"} />;
   }
 }
 function EvaProtectedRoute({ children }) {
@@ -179,6 +210,8 @@ function EvaProtectedRoute({ children }) {
     return <Navigate to={"/employees.panal"} />;
   } else if (children.props.role == "interviewer") {
     return <Navigate to={"/employees.panal/interview"} />;
+  }else if(children.props.role == "busSupervisor"){
+    return <Navigate to={`/employees.panal/groupBusSupervisor`}/>
   }
 }
 function InterProtectedRoute({ children }) {
@@ -188,5 +221,7 @@ function InterProtectedRoute({ children }) {
     return <Navigate to={"/employees.panal/EvaluatorRequests"} />;
   } else if (children.props.role == "admin") {
     return <Navigate to={"/employees.panal"} />;
+  }else if(children.props.role == "busSupervisor"){
+    return <Navigate to={`/employees.panal/groupBusSupervisor`}/>
   }
 }

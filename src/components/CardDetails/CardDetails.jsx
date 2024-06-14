@@ -2,7 +2,7 @@ import React from 'react'
 import style from './CardDetails.module.css'
 export default function CardDetails({hide,interview}) {
   return (
-    <div className='bg-dark bg-opacity-25 position-absolute w-100 top-50 vh-100 p-0 m-0 start-50 translate-middle d-flex justify-content-center z-3 '>
+    <div className='bg-dark bg-opacity-25 position-absolute w-100 top-50 vh-100 h-100 p-0 m-0 start-50 translate-middle d-flex justify-content-center z-3 '>
         <div className=' d-flex justify-content-center align-items-center'>
             <div className='bg-white rounded-3 position-relative '>
                 <div className='position-absolute bottom-0 end-0 p-2 cursor-pointer' onClick={hide}>

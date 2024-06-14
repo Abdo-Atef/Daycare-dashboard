@@ -8,7 +8,6 @@ import styles from './styles.module.css'
 
 export default function Employees() {
   const [modalShow, setModalShow] = useState(false);
-
   const {employees} = useSelector(state => state.employee) 
 
   const handleRole = (role) => {

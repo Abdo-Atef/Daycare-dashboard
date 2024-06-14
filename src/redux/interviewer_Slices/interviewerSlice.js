@@ -7,7 +7,7 @@ export const getAllInterview=createAsyncThunk('getAllInterviewing',async(endPoin
             token:localStorage.getItem('employeeToken')
         }
         const result=await axios.get(`${BASE_URL}/employees/reviewRequest/${endPoint}`,{headers});
-        return result.data;
+        return result?.data.requests;
     } catch (error) {
         console.log(error);
         return error
@@ -20,8 +20,8 @@ export const resultgetInterview=createAsyncThunk('resutlInterview',async()=>{
             token:localStorage.getItem('employeeToken')
         }
         const result=await axios.get(`${BASE_URL}/employees/reviewRequest/getAllIntreviewedRequestsForThisInterviewer`,{headers})
-        console.log(result.data);
-        return result?.data
+        console.log(result.data.requests);
+        return result?.data.requests
     } catch (error) {
         console.log(error);
         return error
@@ -35,7 +35,7 @@ export const SearchInterviwByEmail=createAsyncThunk('searchByEmail',async (email
         }
         const result=await axios.get(`${BASE_URL}/employees/reviewRequest/SpRequetsForInterviwer?email=${email}`,{headers})
         console.log(result);
-        return result.data
+        return result.data?.requests
     } catch (error) {
         console.log(error);
     }
@@ -47,6 +47,14 @@ const initialState={
 export const interviewerSlice=createSlice({
     name:"interviwer",
     initialState,
+    reducers:{
+        setInterviewerRequests : (state, action) => {
+            state.resultInterviews = action.payload;
+        },
+        setAllIntervews:(state,action)=>{
+            state.interviews=action.payload
+        }
+    },
     extraReducers:(builder)=>{
         builder.addCase(getAllInterview.pending,(state,action)=>{
             state.isLoading=true
@@ -82,3 +90,4 @@ export const interviewerSlice=createSlice({
 })
 
 export let InterviewerSliceReducer = interviewerSlice.reducer;
+export let { setAllIntervews,setInterviewerRequests } = interviewerSlice.actions;

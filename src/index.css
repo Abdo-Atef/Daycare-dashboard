@@ -31,20 +31,20 @@
   background-color: #50B8E4 !important;
 }
 .orangeStyle{
-  background-color: #fef3c7;
-  color: #dd841a;
+  background-color: #fef3c7 !important;
+  color: #dd841a !important;
 }
 .blueStyle{
-  background-color: #dbeafe;
-  color: #2764eb;
+  background-color: #dbeafe !important;
+  color: #2764eb !important;
 }
 .greenStyle{
-  background-color: #ccfbf1;
-  color: #14988c;
+  background-color: #ccfbf1 !important;
+  color: #14988c !important;
 }
 .dangerStyle{
-  background-color: #fceaee;
-  color: #ea4d6a;
+  background-color: #fceaee !important;
+  color: #ea4d6a !important;
 }
 .text-night{
   color: #1F263E;

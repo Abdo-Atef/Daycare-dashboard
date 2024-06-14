@@ -23,14 +23,14 @@ export default function SpicificRequest() {
                 <div className="row g-4 bg-white p-4 rounded-2 shadow">
                     <div className="col-lg-6" >
                         <div className='shadow p-3 rounded-3'>
-                            <img src={request?.birthCertificateFile.secure_url} className='w-100 rounded-2 ' alt="certificate" style={{height:600}} />
+                            <img src={request?.birthCertificateFile.secure_url} onClick={()=>window.open(request?.birthCertificateFile.secure_url,"_blank")} className='w-100 rounded-2 ' alt="certificate" style={{height:600}} />
                         </div>
                     </div>
                     <div className="col-lg-6">
                       <div className="row g-4">
                           {request?.nationalIdFile.map((national)=><div className='col-lg-6' key={national?.public_id} >
                               <div className='shadow p-3 rounded-3 h-100'>
-                                  <img src={national?.secure_url} className='w-100 rounded-2' alt="" />
+                                  <img src={national?.secure_url} onClick={()=>window.open(national?.secure_url,"_blank")} className='w-100 rounded-2' alt="" />
                               </div>
                               
                           </div>)}

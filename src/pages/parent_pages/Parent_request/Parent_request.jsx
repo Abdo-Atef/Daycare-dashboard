@@ -75,6 +75,7 @@ export default function ParentRequest() {
     getRequest();
     getProfilePic();
   }, []);
+
   if(!parentToken) return <Navigate to="/parent.login"/>
   return (
         <div className={`${style.request}`}>
@@ -201,9 +202,9 @@ function MyData(){
   return <>
         <div className='py-3 d-flex justify-content-between align-items-center'>
             <h4 className='m-0'>My Data</h4>
-            <div>
+            {request?.resulsts.evaluatedBy == null? <div>
               <button className={`${style.cancel} shadow rounded-3 text-white`} onClick={DeleteRequest}>Cancel Submission</button>
-            </div>
+            </div>:""}
         </div>
             <InputFieldDis className={`${style.search} w-100 ${style.textColor} fw-bold `} label="Parent Name" value={request?.resulsts.parentName} IconType="solid"  IconName="person"/>
             <InputFieldDis className={`${style.search} w-100 ${style.textColor} fw-bold `} label="Email" value={request?.resulsts.email} IconType="regular" IconName="envelope"/>

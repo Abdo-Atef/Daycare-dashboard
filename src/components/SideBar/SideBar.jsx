@@ -25,7 +25,7 @@ export default function SideBar() {
         }`}
       >
         <li className={`${Styles.logoSection}`}>
-          <figure className="mb-2 position-relative">
+          <figure className="mb-2 position-relative ">
             <img src={DashLogo} className="w-100" style={{maxWidth:'200px'}} alt="Dashboard Logo" />
           </figure>
         </li>
@@ -83,6 +83,18 @@ export default function SideBar() {
             </li>
           </>
         )}
+        {/* ------------------------------------------ Evaluator Pages ----------------------------------------------- */}
+
+        {User?.role == "busSupervisor" && (
+          <>
+            <li>
+              <NavLink to={"/employees.panal/groupBusSupervisor"}>
+              <i className="me-2 fa-solid fa-people-group"></i>
+                Bus Group
+              </NavLink>
+            </li>
+          </>
+        )}
 
         {/* ------------------------------------------ Interviewer Pages ----------------------------------------------- */}
 
@@ -90,7 +102,7 @@ export default function SideBar() {
           <>
             <li>
               <NavLink to={"/employees.panal/interview"} end>
-                <i className="fa-solid fa-clipboard-question me-2"></i>
+                <i className="fa-solid fa-clipboard-question me-2 "></i>
                 Interview
               </NavLink>
             </li>
