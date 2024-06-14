@@ -9,8 +9,9 @@ export const getAllemployees = createAsyncThunk('getAllemployees',
       const headers = {
         token : localStorage.getItem('employeeToken')
       }
+      console.log(headers.token);
       const data = await axios.get(`${BASE_URL}/employees/getAllEmployee?role=${role}`, {headers});
-      // console.log(data.data);
+      console.log(data.data);
       return data.data.employees
     } catch (error) {
       console.log(error);

@@ -5,6 +5,8 @@ import { InterviewerSliceReducer} from './interviewer_Slices/interviewerSlice'
 import { evaluatorSliceReducer } from './employees_Slices/evaluatorSlice'
 import { adminSliceReduce } from './admin_slice/adminSlice'
 import { supervisorSliceReducer } from './BusSupervisor_slice/SupervisorSlice'
+import { groupSliceReducer } from './employees_Slices/groupSlice'
+import { childrenSliceReducer } from './employees_Slices/childrenSlice'
 
 export const store = configureStore({
   reducer: {
@@ -13,6 +15,8 @@ export const store = configureStore({
     interviewer:InterviewerSliceReducer,
     evaluator:evaluatorSliceReducer,
     admin:adminSliceReduce,
-    supervisor:supervisorSliceReducer
+    supervisor:supervisorSliceReducer,
+    group:groupSliceReducer,
+    children:childrenSliceReducer,
   },
 })

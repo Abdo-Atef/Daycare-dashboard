@@ -1,0 +1,24 @@
+.dropDownStyle button {
+  border: 0;
+  padding: 0 5px !important;
+  /* width: ; */
+}
+.dropDownStyle button i{
+  padding:  5px !important;
+  /* width: ; */
+}
+.dropDownStyle button::after {
+  display: none !important;
+}
+.dropDownStyle div {
+  padding: 2px 0;
+}
+
+@media (min-width:600px) {
+  .paginationStyles {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+  }
+}

@@ -53,7 +53,7 @@ export default function NavBar() {
             <i className={`fa-solid ${ProfileToggle ? 'fa-angle-down': 'fa-angle-up' } fs-13`}></i>
           </div>
         </div>
-        {ProfileToggle && <ul ref={ulRef} className="position-absolute bg-night accordion">
+        {ProfileToggle && <ul ref={ulRef} className="position-absolute bg-night accordion z-3">
           <li className="border-bottom border-white ">
             <Link onClick={()=> setProfileToggle(false)} to={'/employees.panal/EmployeeProfile'}><i className="fa-solid fa-user fs-14 me-2"></i>My Profile</Link>
           </li>

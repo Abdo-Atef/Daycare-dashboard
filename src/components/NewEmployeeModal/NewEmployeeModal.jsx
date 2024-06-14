@@ -38,6 +38,7 @@ export default function NewEmployeeModal({setModalShow, modalShow}) {
     else if (payload.sucess == true){
       toast.success('The account is created successfully and activation message sended to the Email');
       dispatch(getAllemployees());
+      setModalShow(false);
       setapiResult(false);
       resetForm();
     }
@@ -143,7 +144,7 @@ export default function NewEmployeeModal({setModalShow, modalShow}) {
             {apiResult && <p className="text-danger text-center mt-4  ">{apiResult}</p>}
           </Modal.Body>
           <Modal.Footer>
-            <button onClick={()=> setModalShow(false)} className="btn btn-secondary fs-14 px-3">Cancel</button>
+            <span onClick={()=> setModalShow(false)} className="btn btn-secondary fs-14 px-3">Cancel</span>
             {!Isloading? 
             <button type="submit" className="btn btn-night fs-14 px-3">Submit</button>
             :

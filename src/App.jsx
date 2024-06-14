@@ -29,6 +29,8 @@ import { useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
 import SpicificBus from "./pages/employees_pages/Busses/SpicificBus/SpicificBus";
 import GroupBusSupervisor from "./pages/employees_pages/Busses/GroupBusSupervisor/GroupBusSupervisor";
+import SpecificGroup from "./pages/employees_pages/Groups/SpecificGroup";
+import Children from "./pages/employees_pages/Children/Children";
 
 function App() {
 
@@ -72,10 +74,26 @@ function App() {
           ),
         },
         {
+          path: "/employees.panal/groups/:id",
+          element: (
+            <AdminProtectedRoute>
+              <SpecificGroup role = {Role} />
+            </AdminProtectedRoute>
+          ),
+        },
+        {
           path: "/employees.panal/requests",
           element: (
             <AdminProtectedRoute>
               <Requests role = {Role} />
+            </AdminProtectedRoute>
+          ),
+        },
+        {
+          path: "/employees.panal/children",
+          element: (
+            <AdminProtectedRoute>
+              <Children role = {Role} />
             </AdminProtectedRoute>
           ),
         },

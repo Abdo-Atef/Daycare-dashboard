@@ -133,6 +133,11 @@ export default function EvaluatedRequests() {
                       <td>{user.phone}</td>
                       <td className="text-capitalize fs-14 fw-semibold">
                         {user.state == "interviewing" && (
+                          <span className="orangeStyle pb-1 rounded px-2">
+                            {user.state}
+                          </span>
+                        )}
+                        {user.state == "accepted" && (
                           <span className="greenStyle pb-1 rounded px-2">
                             {user.state}
                           </span>

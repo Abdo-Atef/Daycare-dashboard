@@ -1,0 +1,12 @@
+.dropDownStyle::after {
+  display: none !important;
+}
+
+@media (min-width:600px) {
+  .paginationStyles {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+  }
+}
