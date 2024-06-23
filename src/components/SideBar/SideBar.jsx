@@ -68,6 +68,18 @@ export default function SideBar() {
                 Busses
               </NavLink>
             </li>
+            <li>
+              <NavLink to={"/employees.panal/meals"} end>
+                <i className="fa-solid fa-cheese me-2"></i>
+                Meals
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to={"/employees.panal/event"} end>
+                <i className="fa-solid fa-plane me-2"></i>
+                Event
+              </NavLink>
+            </li>
           </>
         )}
 

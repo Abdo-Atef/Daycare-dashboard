@@ -7,7 +7,8 @@ import { adminSliceReduce } from './admin_slice/adminSlice'
 import { supervisorSliceReducer } from './BusSupervisor_slice/SupervisorSlice'
 import { groupSliceReducer } from './employees_Slices/groupSlice'
 import { childrenSliceReducer } from './employees_Slices/childrenSlice'
-
+import { mealSliceReducer } from './employees_Slices/mealSlice'
+import { EventSliceReducer } from './employees_Slices/EventSlice'
 export const store = configureStore({
   reducer: {
     employee:employeeSliceReducer,
@@ -18,5 +19,7 @@ export const store = configureStore({
     supervisor:supervisorSliceReducer,
     group:groupSliceReducer,
     children:childrenSliceReducer,
+    meals:mealSliceReducer,
+    events:EventSliceReducer
   },
 })

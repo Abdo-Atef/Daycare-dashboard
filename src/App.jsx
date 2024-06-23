@@ -31,6 +31,9 @@ import SpicificBus from "./pages/employees_pages/Busses/SpicificBus/SpicificBus"
 import GroupBusSupervisor from "./pages/employees_pages/Busses/GroupBusSupervisor/GroupBusSupervisor";
 import SpecificGroup from "./pages/employees_pages/Groups/SpecificGroup";
 import Children from "./pages/employees_pages/Children/Children";
+import Meals from "./pages/employees_pages/Meals/Meals";
+import SpicificMeal from "./components/spicificMeal/SpicificMeal";
+import Events from "./pages/employees_pages/event/Events";
 
 function App() {
 
@@ -110,6 +113,30 @@ function App() {
           element: (
             <AdminProtectedRoute>
               <Busses role = {Role} />
+            </AdminProtectedRoute>
+          ),
+        },
+        {
+          path: "/employees.panal/meals",
+          element: (
+            <AdminProtectedRoute>
+              <Meals role = {Role} />
+            </AdminProtectedRoute>
+          ),
+        },
+        {
+          path: "/employees.panal/meals/:id",
+          element: (
+            <AdminProtectedRoute>
+              <SpicificMeal role = {Role} />
+            </AdminProtectedRoute>
+          ),
+        },
+        {
+          path: "/employees.panal/event",
+          element: (
+            <AdminProtectedRoute>
+              <Events role = {Role} />
             </AdminProtectedRoute>
           ),
         },

@@ -10,7 +10,7 @@ export const getChildren = createAsyncThunk('getChildren',
         token : localStorage.getItem('employeeToken')
       }
       const data = await axios.get(`${BASE_URL}/employees/groups/getAllChildrenNotInGroup`, {headers});
-      // console.log(data.data);
+      console.log(data.data);
       return data.data.students
     } catch (error) {
       console.log(error);

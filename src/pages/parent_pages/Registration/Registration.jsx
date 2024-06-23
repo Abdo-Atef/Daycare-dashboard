@@ -102,7 +102,6 @@ export default function Registration() {
   const handleChangeFile = (event) => {
     const { name, files } = event.currentTarget;
     formik.setFieldValue(name, files[0]);
-
   };
   if(parentToken) return <Navigate to="/parentRequest"/>
 

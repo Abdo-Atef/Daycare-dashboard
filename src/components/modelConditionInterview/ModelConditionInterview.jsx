@@ -26,7 +26,7 @@ export default function ModelConditionInterview({show,onHide,interviewData}) {
     })
     const formik=useFormik({
         initialValues:{
-            state:'',
+            state:'accepted',
             condition:'',
             busService:null
         },
@@ -44,6 +44,8 @@ export default function ModelConditionInterview({show,onHide,interviewData}) {
         }else{
             state.classList.remove('d-none')
             state.classList.add('d-block')
+            bus.classList.add('d-none')
+
         }
     }
     useEffect(()=>{
