@@ -157,7 +157,7 @@ export const removeSupervisorOfGroup = createAsyncThunk('removeSupervisorOfGroup
       const headers = {
         token : localStorage.getItem('employeeToken')
       }
-      const data = await axios.patch(`${BASE_URL}/employees/groups/makeGroupWithoutSuperviosr/${id}`, {headers});
+      const data = await axios.patch(`${BASE_URL}/employees/groups/makeGroupWithoutSuperviosr/${id}`,{}, {headers});
       // console.log(data.data);
       return data.data
     } catch (error) {

@@ -11,6 +11,8 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { deleteGroup, getAllFreeSupervisors, getAllGroups, getSpecificGroupData, removeChildrenFromGroup, removeSupervisorOfGroup, setSpecificGroupData, updateGroup, updateGroupSupervisor } from '../../../redux/employees_Slices/groupSlice';
 import Dropdown from 'react-bootstrap/Dropdown';
 import WarningModel from '../../../components/WarningModel/WarningModel';
+import { deleteDoc, doc } from 'firebase/firestore';
+import { db } from '../../../constants/firebase_config';
 
 export default function SpecificGroup() {
   const {id} = useParams();
@@ -162,14 +164,24 @@ const formik = useFormik({
     const [DeleteModalShow, setDeleteModalShow] = useState(false);
     async function handleDeleteGroup() {
       let {payload} = await dispatch(deleteGroup(id))
-      console.log(payload);
       if (payload.sucess) {
         toast.success("The group is deleted sucessfully",{position:'bottom-right'})
+        deleteGroupfromFirebase(id)
         dispatch(getAllGroups())
         setDeleteModalShow(false)
         navigate('/employees.panal/groups')
       }
     }
+
+    const deleteGroupfromFirebase = async (id) => {
+      try {
+        const docRef = doc(db, "chattingGroups", id);
+        await deleteDoc(docRef);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    
     const [DeleteSelectedModalShow, setDeleteSelectedModalShow] = useState(false);
     async function handleDeleteSelected() {
       const params = {

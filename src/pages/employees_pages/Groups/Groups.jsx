@@ -12,6 +12,8 @@ import { useNavigate } from 'react-router-dom';
 import avatar1 from '../../../assets/group-01.png'
 import avatar2 from '../../../assets/group-02.png'
 import avatar3 from '../../../assets/group-03.png'
+import { Timestamp, doc, setDoc } from 'firebase/firestore';
+import { db } from '../../../constants/firebase_config';
 
 export default function Children() {
   let navigate = useNavigate()
@@ -42,11 +44,13 @@ export default function Children() {
 async function handleAddNewGroup(values, {resetForm}) {
   setIsloading(true)
   let {payload} = await dispatch(addNewGroup(values))
+  console.log(payload);
   if (payload.sucess) {
     dispatch(getAllGroups())
     toast.success('The group is created sucessfully', {
       position:'bottom-right'
     })
+    createGroupInFriebase(payload.newCreatedGroup)
     dispatch(getAllFreeSupervisors())
     resetForm();
     setIsloading(false)
@@ -58,6 +62,19 @@ async function handleAddNewGroup(values, {resetForm}) {
     setIsloading(false)
   }
 }
+
+const createGroupInFriebase = async (values) => {
+  try {
+    await setDoc(doc(db, "chattingGroups", values.id), {
+      groupId: values.id,
+      groupName: values.groupName,
+      createdAt: Timestamp.fromDate(new Date()),
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 
 const formik = useFormik({
   initialValues: {
@@ -131,7 +148,12 @@ const formik = useFormik({
                         <i className="fa-solid fa-folder fs-5 me-2 p-1" style={{color:'#1100c2'}}></i>
                         {group.groupName}
                       </td>
-                      <td className='py-3 text-capitalize'>{group.groupSupervisor.name}</td>
+                      
+                      {group.groupSupervisor ? 
+                      <td className='py-3 text-capitalize'>{group.groupSupervisor?.name}</td> 
+                      :
+                      <td className='py-3 text-capitalize text-danger fw-semibold'>None</td> 
+                      }
                       <td className="py-3 text-capitalize">
                         <div className='d-flex'>
                           <img src={avatar1} width={33} height={33} className='rounded-circle border border-white border-2' alt="avatar1" />
