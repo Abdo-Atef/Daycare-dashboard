@@ -105,7 +105,6 @@ export default function Busses() {
     dispatch(getBusFilter())
 
   }
-
   async function filterCapacity(min, max) {
     let { payload } = await dispatch(getAllBus());
     const data = payload?.allbuses.filter((bus) => bus?.capacity >= min && bus?.capacity <= max);
@@ -239,7 +238,7 @@ export default function Busses() {
                     <i className="fa-solid fa-user fs-4"></i>
                   </div>
                 ) : (
-                  <img src={child?.profilePicture.secure_url} onClick={() => handleChildDetails(Busses.busSeatsInformation[index])} style={{ width: 35, height: 35 }} className='rounded-circle position-absolute cursor-pointer' alt={child?.parentName} />
+                  <img src={child?.profilePicture.secure_url} onClick={() => handleChildDetails(Busses?.busSeatsInformation[index])} style={{ width: 35, height: 35 }} className='rounded-circle position-absolute cursor-pointer' alt={child?.parentName} />
                 )}
               </div>
             ))}
@@ -344,7 +343,6 @@ export default function Busses() {
                 aria-labelledby="example-modal-sizes-title-lg"
                 centered
                 >
-                  {console.log(ChildDetails)}
             <Modal.Header className='border-0' closeButton  style={{backgroundColor:"#1b1b1d",color:'#fff'}}>
             </Modal.Header>
             <Modal.Body  style={{backgroundColor:"#1b1b1d"}}>

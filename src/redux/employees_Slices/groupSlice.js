@@ -25,7 +25,7 @@ export const getSpecificGroupData = createAsyncThunk('getSpecificGroupData',
         token : localStorage.getItem('employeeToken')
       }
       const data = await axios.get(`${BASE_URL}/employees/groups/getSpGroupWithAllDataAndStudents/${id}`, {headers});
-      // console.log(data.data.group);
+      console.log(data.data.group);
       return data.data.group
     } catch (error) {
       console.log(error);
